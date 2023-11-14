@@ -10,10 +10,12 @@ using System.Windows.Forms;
 
 namespace QuanLiSinhVien_DATH
 {
-    public partial class Form1 : Form
+    public partial class ApplicationForm : Form
     {
-        public Form1()
+        private User currentUser;
+        public ApplicationForm(User currentUser)
         {
+            this.currentUser = currentUser;
             InitializeComponent();
         }
     }
