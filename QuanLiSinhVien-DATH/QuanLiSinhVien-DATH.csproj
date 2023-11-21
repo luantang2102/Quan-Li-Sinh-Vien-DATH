@@ -52,6 +52,8 @@
     <Compile Include="ApplicationForm.Designer.cs">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DSSV.cs" />
+    <Compile Include="SinhVien.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserForm.cs">
       <SubType>Form</SubType>
