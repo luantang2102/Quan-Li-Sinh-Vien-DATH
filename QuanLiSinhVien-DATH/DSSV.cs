@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QuanLiSinhVien_DATH
 {
-    class DSSV
+    public class DSSV
     {
 
         private List<SinhVien> _dsSinhVien;

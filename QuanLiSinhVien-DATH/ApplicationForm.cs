@@ -9,19 +9,23 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
 using System.Security.Claims;
+using System.IO;
+using System.Text.Json;
 
 namespace QuanLiSinhVien_DATH
 {
     public partial class ApplicationForm : Form
     {
         private DSSV dssv;
-        private SinhVien sv;
         private int viTriHienTai = 0;
         private User currentUser;
 
-        public ApplicationForm(User currentUser)
+        private Data saveData;
+
+        public ApplicationForm(User currentUser, Data saveData)
         {
             this.currentUser = currentUser;
+            this.saveData = saveData;   
             InitializeComponent();
 
         }
@@ -29,11 +33,48 @@ namespace QuanLiSinhVien_DATH
         {
             dgv.DataSource = sv.ToList();
         }
+
+        private void docFile()
+        {
+            try
+            {
+                string json = File.ReadAllText("data.json");
+                Data data = JsonSerializer.Deserialize<Data>(json);
+                this.dssv = data.DanhSachSinhVien;
+                
+            }
+            catch (Exception ex)
+            {
+                dssv = new DSSV();
+            }
+        }
+        
+        private void ghiFile()
+        {
+            try
+            {
+                saveData.DanhSachSinhVien = this.dssv;
+                   
+                string jsonString = JsonSerializer.Serialize(saveData);
+                string filePath = "data.json";
+
+                if (File.Exists(filePath))
+                {
+                    File.Delete(filePath);
+                }
+
+                File.WriteAllText(filePath, jsonString);
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
         private void ApplicationForm_Load(object sender, EventArgs e)
         {
-            dssv = new DSSV();
-            sv = new SinhVien();
-
+            docFile();
+            hienthi(dgvdmsv, dssv.DSsinhvien);
         }
 
         private void btnthem_Click(object sender, EventArgs e)
@@ -93,7 +134,14 @@ namespace QuanLiSinhVien_DATH
             txthoten.Text = dgvdmsv.Rows[e.RowIndex].Cells["hoten"].Value.ToString();
             txtemail.Text = dgvdmsv.Rows[e.RowIndex].Cells["email"].Value.ToString();
             txtdiachi.Text = dgvdmsv.Rows[e.RowIndex].Cells["diachi"].Value.ToString();
-            radnam.Text = dgvdmsv.Rows[e.RowIndex].Cells["gioitinh"].Value.ToString();
+            if (dgvdmsv.Rows[e.RowIndex].Cells["gioitinh"].Value.ToString().Equals("Nam"))
+            {
+                radnam.Checked = true;
+            }
+            else
+            {
+                radnu.Checked = true; ;
+            }
 
             dtpngaysinh.Value = (DateTime)dgvdmsv.Rows[e.RowIndex].Cells["ngaysinh"].Value;
             txtsodt.Text = dgvdmsv.Rows[e.RowIndex].Cells["sodt"].Value.ToString();
@@ -146,6 +194,11 @@ namespace QuanLiSinhVien_DATH
             {
                 MessageBox.Show(exc.Message);
             }
+        }
+
+        private void ApplicationForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ghiFile();
         }
     }
 

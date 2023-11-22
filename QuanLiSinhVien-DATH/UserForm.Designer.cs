@@ -67,7 +67,7 @@
             this.signInPanel.Name = "signInPanel";
             this.signInPanel.Size = new System.Drawing.Size(495, 449);
             this.signInPanel.TabIndex = 0;
-            this.signInPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.signInPanel_Paint);
+          
             // 
             // label4
             // 
