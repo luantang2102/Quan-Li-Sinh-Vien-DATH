@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,25 +14,33 @@ namespace QuanLiSinhVien_DATH
 {
     public partial class UserForm : Form
     {
-        List<User> userList;
-        
+        DSGV dsGV;
+        Data saveData = new Data();
+
+        private void docFile()
+        {
+            try
+            {
+                string json = File.ReadAllText("data.json");
+                Data data = JsonSerializer.Deserialize<Data>(json);
+                this.dsGV = data.DanhSachGiaoVien; 
+                if(dsGV == null) dsGV = new DSGV();
+
+            }
+            catch (Exception ex)
+            {
+                dsGV = new DSGV();
+            }
+        }
+
         public UserForm()
         {
             InitializeComponent();
         }
-
+           
         private void UserForm_Load(object sender, EventArgs e)
-        {
-            //Read file users 
-            //TO DO
-            //.
-            //.
-            userList = new List<User>();
-
-            //Test login func
-            User user = new User("luan", "123");
-            userList.Add(user);
-            //----------------------------------
+        { 
+            docFile();
         }
 
         private void signUpSwitchBtn_Click(object sender, EventArgs e)
@@ -47,18 +57,20 @@ namespace QuanLiSinhVien_DATH
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
-            if (userList.Any() != true)
+            if (dsGV.DSgiaovien.Any() != true)
             {
                 MessageBox.Show("Chưa có tài khoản trong cơ sở dữ liệu");
                 return;
             }
-            foreach (User user in userList)
+            saveData.DanhSachGiaoVien = this.dsGV;
+            foreach (User user in dsGV.DSgiaovien)
             {
-                if (user.getUsername().Equals(usernameTB.Text) && user.getPassword().Equals(passwordTB.Text))
+                if (user.Username.Equals(usernameTB.Text) && user.Password.Equals(passwordTB.Text))
                 {
                     MessageBox.Show("Đăng nhập thành công");
+                    
                     this.Hide();
-                    ApplicationForm applicationForm = new ApplicationForm(user);
+                    ApplicationForm applicationForm = new ApplicationForm(user, saveData);
                     applicationForm.ShowDialog();
                     this.Close();
                     return;
@@ -71,9 +83,9 @@ namespace QuanLiSinhVien_DATH
 
         private void signUpBtn_Click(object sender, EventArgs e)
         {
-            foreach(User user in userList)
+            foreach(User user in dsGV.DSgiaovien)
             {
-                if(user.getUsername().Equals(usernameRTB.Text))
+                if(user.Username.Equals(usernameRTB.Text))
                 {
                     MessageBox.Show("Tên đăng nhập đã tồn tại");
                     return;
@@ -82,10 +94,10 @@ namespace QuanLiSinhVien_DATH
             if(password1RTB.Text.Equals(password2RTB.Text))
             {
                 User user = new User();
-                user.setUsername(usernameRTB.Text);
-                user.setPassword(password2RTB.Text);
+                user.Username= usernameRTB.Text;
+                user.Password= password2RTB.Text;
 
-                userList.Add(user);
+                dsGV.DSgiaovien.Add(user);
 
                 MessageBox.Show("Dang ky thanh cong");
                 signInPanel.Visible = true;
@@ -97,11 +109,6 @@ namespace QuanLiSinhVien_DATH
                 password1RTB.Text = "";
                 password2RTB.Text = "";
             }
-        }
-
-        private void signInPanel_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

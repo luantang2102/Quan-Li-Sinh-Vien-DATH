@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QuanLiSinhVien_DATH
 {
-    internal class SinhVien
+    public class SinhVien
     {
         private string _masv;
         private string _hoten;
