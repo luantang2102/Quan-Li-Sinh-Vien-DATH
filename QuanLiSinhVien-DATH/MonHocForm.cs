@@ -17,15 +17,15 @@ namespace QuanLiSinhVien_DATH
         {
             dgvMH.DataSource = dsMH.ToList();
         }
-        private MonHoc timMH(string mamh)
-        {
-            foreach (MonHoc item in dsMH)
-            {
-                if(item.MaMH == mamh)
-                    return item;
-            }
-            return null;
-        }
+        //private MonHoc timMH(string mamh)
+        //{
+        //    foreach (MonHoc item in dsMH)
+        //    {
+        //        if(item.MaMH == mamh)
+        //            return item;
+        //    }
+        //    return null;
+        //}
         public MonHocForm()
         {
             InitializeComponent();
@@ -42,14 +42,21 @@ namespace QuanLiSinhVien_DATH
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            MonHoc mh = new MonHoc();
-            mh.MaMH = txtMaMH.Text;
-            mh.TenMH = txtTenMH.Text;
-            mh.TinChi= txtSoTC.Text;
-            mh.TietLT = txtTietLT.Text;
-            mh.TietTH = txtTietTH.Text;
-            dsMH.Add(mh);
+            MonHoc n = new MonHoc();
+            n.MaMH = txtMaMH.Text;
+            n.TenMH = txtTenMH.Text;
+            n.TinChi= txtSoTC.Text;
+            n.TietLT = txtTietLT.Text;
+            n.TietTH = txtTietTH.Text;
+            dsMH.Add(n);
             hienthi();
+            //if (timMH(n.MaMH) == null)
+            //{
+            //    dsMH.Add(n);
+            //    hienthi();
+            //}
+            //else
+            //    MessageBox.Show("Ma mon hoc " + n.MaMH + " da ton tai. Khong them duoc.");
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -84,6 +91,12 @@ namespace QuanLiSinhVien_DATH
         private void btnLuu_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void MonHocForm_Load(object sender, EventArgs e)
+        {
+            dsMH = new List<MonHoc>();
+            hienthi();
         }
     }
 }

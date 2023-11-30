@@ -250,6 +250,7 @@
             this.Controls.Add(this.label1);
             this.Name = "MonHocForm";
             this.Text = "MonHocForm";
+            this.Load += new System.EventHandler(this.MonHocForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMH)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
