@@ -80,9 +80,24 @@
     <Compile Include="ApplicationForm.Designer.cs">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChuyenNganh.cs" />
+    <Compile Include="ChuyenNganhForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChuyenNganhForm.Designer.cs">
+      <DependentUpon>ChuyenNganhForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Data.cs" />
+    <Compile Include="DSCN.cs" />
     <Compile Include="DSGV.cs" />
+    <Compile Include="DSMH.cs" />
     <Compile Include="DSSV.cs" />
+    <Compile Include="MenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuForm.Designer.cs">
+      <DependentUpon>MenuForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MonHoc.cs" />
     <Compile Include="MonHocForm.cs">
       <SubType>Form</SubType>
@@ -102,6 +117,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ApplicationForm.resx">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChuyenNganhForm.resx">
+      <DependentUpon>ChuyenNganhForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuForm.resx">
+      <DependentUpon>MenuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MonHocForm.resx">
       <DependentUpon>MonHocForm.cs</DependentUpon>

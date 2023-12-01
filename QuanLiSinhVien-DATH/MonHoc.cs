@@ -8,50 +8,50 @@ namespace QuanLiSinhVien_DATH
 {
     public class MonHoc
     {
-        private string m_mamh;
-        private string m_tenmh;
-        private string m_sotc;
-        private string m_tietlt;
-        private string m_tietth;
+        private string _mamh;
+        private string _tenmh;
+        private string _sotc;
+        private string _tietlt;
+        private string _tietth;
 
         public string MaMH
         {
-            get { return m_mamh; }
-            set { m_mamh = value; }
+            get { return this._mamh; }
+            set { this._mamh = value; }
         }
         public string TenMH
         {
-            get { return m_tenmh; }
-            set { m_tenmh = value; }
+            get { return this._tenmh; }
+            set { this._tenmh = value; }
         }
         public string TinChi
-        {   get { return m_sotc;}
-            set { m_sotc = value; }
+        {   get { return this._sotc;}
+            set { this._sotc = value; }
         }
         public string TietLT
-        {   get { return m_tietlt;}
-            set { m_tietlt = value; }
+        {   get { return this._tietlt;}
+            set { this._tietlt = value; }
         }
         public string TietTH
         {
-            get { return m_tietth;}
-            set { m_tietth = value;}
+            get { return this._tietth;}
+            set { this._tietth = value;}
         }
         public MonHoc()
         {
-            m_mamh = "";
-            m_tenmh = "";
-            m_sotc = "";
-            m_tietlt = "";
-            m_tietth = "";
+            this._mamh = "";
+            this._tenmh = "";
+            this._sotc = "";
+            this._tietlt = "";
+            this._tietth = "";
         }
         public MonHoc(string mamh, string tenmh, string sotc, string tietlt, string tietth)
         {
-            m_mamh = mamh;
-            m_tenmh = tenmh;
-            m_sotc = sotc;
-            m_tietlt = tietlt;
-            m_tietth = tietth;
+            this._mamh = mamh;
+            this._tenmh = tenmh;
+            this._sotc = sotc;
+            this._tietlt = tietlt;
+            this._tietth = tietth;
         }
     }
 
