@@ -146,22 +146,6 @@ namespace QuanLiSinhVien_DATH
             dtpngaysinh.Value = (DateTime)dgvdmsv.Rows[e.RowIndex].Cells["ngaysinh"].Value;
             txtsodt.Text = dgvdmsv.Rows[e.RowIndex].Cells["sodt"].Value.ToString();
         }
-
-        private void btnsua_Click(object sender, EventArgs e)
-        {
-            SinhVien sv = new SinhVien();
-            sv.MaSV = txtmasv.Text;
-            sv.HoTen = txthoten.Text;
-            sv.Email = txtemail.Text;
-            sv.NgaySinh = dtpngaysinh.Value;
-            sv.GioiTinh = radnam.Text;
-            sv.Diachi = txtdiachi.Text;
-            sv.Sodt = txtsodt.Text;
-            dssv.sua(sv, viTriHienTai);
-            hienthi(dgvdmsv, dssv.DSsinhvien);
-        }
-
-
         private void btTim_Click(object sender, EventArgs e)
         {
             string ndTim = txtTim.Text;
@@ -199,6 +183,20 @@ namespace QuanLiSinhVien_DATH
         private void ApplicationForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             ghiFile();
+        }
+
+        private void btnsua_Click_1(object sender, EventArgs e)
+        {
+            SinhVien sv = new SinhVien();
+            sv.MaSV = txtmasv.Text;
+            sv.HoTen = txthoten.Text;
+            sv.Email = txtemail.Text;
+            sv.NgaySinh = dtpngaysinh.Value;
+            sv.GioiTinh = radnam.Text;
+            sv.Diachi = txtdiachi.Text;
+            sv.Sodt = txtsodt.Text;
+            dssv.sua(sv, viTriHienTai);
+            hienthi(dgvdmsv, dssv.DSsinhvien);
         }
     }
 

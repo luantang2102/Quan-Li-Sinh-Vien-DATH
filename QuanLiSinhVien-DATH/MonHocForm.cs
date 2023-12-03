@@ -85,5 +85,10 @@ namespace QuanLiSinhVien_DATH
         {
 
         }
+
+        private void MonHocForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
