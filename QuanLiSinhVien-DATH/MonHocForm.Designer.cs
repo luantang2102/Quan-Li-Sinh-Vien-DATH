@@ -183,7 +183,6 @@
             this.btnLuu.TabIndex = 13;
             this.btnLuu.Text = "LƯU";
             this.btnLuu.UseVisualStyleBackColor = true;
-            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // dgvMH
             // 
@@ -201,7 +200,7 @@
             this.dgvMH.RowTemplate.Height = 28;
             this.dgvMH.Size = new System.Drawing.Size(544, 336);
             this.dgvMH.TabIndex = 14;
-            this.dgvMH.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMH_RowEnter);
+            this.dgvMH.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMH_CellContentClick);
             // 
             // Column1
             // 

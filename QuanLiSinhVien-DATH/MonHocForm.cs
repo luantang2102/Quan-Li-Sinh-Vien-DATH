@@ -37,15 +37,10 @@ namespace QuanLiSinhVien_DATH
         //    }
         //    return null;
         //}
-        private void dgvMH_RowEnter(object sender, DataGridViewCellEventArgs e)
+
+        private void MonHocForm_Load(object sender, EventArgs e)
         {
-            ViTriHienTai = e.RowIndex;
-            DataGridViewRow row = dgvMH.Rows[ViTriHienTai];
-            txtMaMH.Text = dgvMH.Rows[e.RowIndex].Cells["mamh"].Value.ToString();
-            txtTenMH.Text = dgvMH.Rows[e.RowIndex].Cells["tenmonhoc"].Value.ToString();
-            txtSoTC.Text = dgvMH.Rows[e.RowIndex].Cells["soTC"].Value.ToString();
-            txtTietLT.Text = dgvMH.Rows[e.RowIndex].Cells["tietLT"].Value.ToString();
-            txtTietTH.Text = dgvMH.Rows[e.RowIndex].Cells["tietTH"].Value.ToString();
+            dsmh=new DSMH();
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -53,13 +48,12 @@ namespace QuanLiSinhVien_DATH
             MonHoc mh = new MonHoc();
             mh.MaMH = txtMaMH.Text;
             mh.TenMH = txtTenMH.Text;
-            mh.TinChi= txtSoTC.Text;
+            mh.TinChi = txtSoTC.Text;
             mh.TietLT = txtTietLT.Text;
             mh.TietTH = txtTietTH.Text;
-
-            if (dsmh.kiemTraTrungMa(txtMaMH.Text))
+            if(dsmh.kiemTraTrungMa(txtMaMH.Text))
             {
-                MessageBox.Show("ma nay da co", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Mã này đã có", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtMaMH.Focus();
             }
             else
@@ -73,39 +67,42 @@ namespace QuanLiSinhVien_DATH
         {
             try
             {
-                DialogResult ketQua = MessageBox.Show("Ban thuc su muon xoa?,", "Thong bao", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (ketQua == DialogResult.Yes)
+                DialogResult Kq = MessageBox.Show("Bạn thực sự muốn xóa?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if(Kq==DialogResult.Yes)
                 {
                     this.dsmh.xoaViTri(ViTriHienTai);
                     hienthi(dgvMH, dsmh.DSMonHoc);
-                }
+                }    
             }
-            catch (Exception)
+            catch(Exception)
             {
-                MessageBox.Show("bạn đã nhập sai!");
+                MessageBox.Show("Bạn đã nhập sai!");
             }
+        }
+
+
+
+        private void dgvMH_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ViTriHienTai = e.RowIndex;
+            _ = dgvMH.Rows[ViTriHienTai];
+            txtMaMH.Text = dgvMH.Rows[e.RowIndex].Cells["mamh"].Value.ToString();
+            txtTenMH.Text = dgvMH.Rows[e.RowIndex].Cells["tenMH"].Value.ToString();
+            txtSoTC.Text = dgvMH.Rows[e.RowIndex].Cells["soTC"].Value.ToString();
+            txtTietLT.Text = dgvMH.Rows[e.RowIndex].Cells["tietLT"].Value.ToString();
+            txtTietTH.Text = dgvMH.Rows[e.RowIndex].Cells["tietTH"].Value.ToString();
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
             MonHoc mh = new MonHoc();
             mh.MaMH = txtMaMH.Text;
-            mh.TenMH =txtTenMH .Text;
-            mh.TinChi =txtSoTC .Text;
+            mh.TenMH = txtTenMH.Text;
+            mh.TinChi = txtSoTC.Text;
             mh.TietLT = txtTietLT.Text;
             mh.TietTH = txtTietTH.Text;
             dsmh.sua(mh, ViTriHienTai);
             hienthi(dgvMH, dsmh.DSMonHoc);
-        }
-
-        private void btnLuu_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MonHocForm_Load(object sender, EventArgs e)
-        {
-            dsmh=new DSMH();
         }
     }
 }

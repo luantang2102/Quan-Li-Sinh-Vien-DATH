@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.dgvdscn = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtmacn = new System.Windows.Forms.TextBox();
@@ -38,9 +41,6 @@
             this.btnSua = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtsoluong = new System.Windows.Forms.TextBox();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdscn)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,6 +57,24 @@
             this.dgvdscn.RowHeadersWidth = 51;
             this.dgvdscn.Size = new System.Drawing.Size(500, 361);
             this.dgvdscn.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "MaCN";
+            this.Column1.HeaderText = "Mã Chuyên Ngành";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "TenCN";
+            this.Column2.HeaderText = "Tên Chuyên Ngành";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "SoLuong";
+            this.Column3.HeaderText = "Số Lượng";
+            this.Column3.Name = "Column3";
             // 
             // label1
             // 
@@ -135,24 +153,6 @@
             this.txtsoluong.Name = "txtsoluong";
             this.txtsoluong.Size = new System.Drawing.Size(100, 20);
             this.txtsoluong.TabIndex = 2;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "MaCN";
-            this.Column1.HeaderText = "Mã Chuyên Ngành";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "TenCN";
-            this.Column2.HeaderText = "Tên Chuyên Ngành";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "SoLuong";
-            this.Column3.HeaderText = "Số Lượng";
-            this.Column3.Name = "Column3";
             // 
             // ChuyenNganhForm
             // 

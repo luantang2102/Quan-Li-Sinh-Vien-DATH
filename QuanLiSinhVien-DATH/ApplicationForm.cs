@@ -172,7 +172,7 @@ namespace QuanLiSinhVien_DATH
                 }
                 if (!Kiemtra)
                 {
-                    MessageBox.Show("Nội Dung: " + txtTim.Text, "Không Thể Tìm thấy");
+                    MessageBox.Show("Không thể tìm thấy nội dung" + txtTim.Text, "Thông báo");
                     return;
                 }
             }

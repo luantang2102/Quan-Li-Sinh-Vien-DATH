@@ -53,7 +53,6 @@ namespace QuanLiSinhVien_DATH
         {
             this.DSsinhvien[ViTri] = sv;
         }
-
     }
 
 
