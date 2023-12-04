@@ -70,8 +70,10 @@ namespace QuanLiSinhVien_DATH
                     MessageBox.Show("Đăng nhập thành công");
                     
                     this.Hide();
-                    ApplicationForm applicationForm = new ApplicationForm(user, saveData);
-                    applicationForm.ShowDialog();
+                    //ApplicationForm applicationForm = new ApplicationForm(user, saveData);
+                    //applicationForm.ShowDialog();
+                    MenuForm menu = new MenuForm(user);
+                    menu.ShowDialog();
                     this.Close();
                     return;
                 }

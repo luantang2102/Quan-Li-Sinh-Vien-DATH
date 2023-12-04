@@ -22,13 +22,14 @@ namespace QuanLiSinhVien_DATH
 
         private Data saveData;
 
-        public ApplicationForm(User currentUser, Data saveData)
+        public ApplicationForm(/*User currentUser,*/ /*Data saveData*/)
         {
-            this.currentUser = currentUser;
-            this.saveData = saveData;   
+            //this.currentUser = currentUser;
+            //this.saveData = saveData;   
             InitializeComponent();
 
         }
+
         private void hienthi(DataGridView dgv, List<SinhVien> sv)
         {
             dgv.DataSource = sv.ToList();
