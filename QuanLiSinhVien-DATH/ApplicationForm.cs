@@ -97,6 +97,10 @@ namespace QuanLiSinhVien_DATH
             }
             sv.Diachi = txtdiachi.Text;
             sv.Sodt = txtsodt.Text;
+            sv.Dantoc = txtdt.Text;
+            sv.Quoctich = txtqt.Text;
+            sv.MaCN = txtmcn.Text;
+            sv.TenCN = txttencn.Text;
 
             if (dssv.kiemTraTrungMa(txtmasv.Text))
             {
@@ -127,7 +131,7 @@ namespace QuanLiSinhVien_DATH
             }
         }
 
-        private void dgvdmsv_RowEnter(object sender, DataGridViewCellEventArgs e)
+        private void dgvdmsv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             viTriHienTai = e.RowIndex;
             DataGridViewRow row = dgvdmsv.Rows[viTriHienTai];
@@ -146,8 +150,11 @@ namespace QuanLiSinhVien_DATH
 
             dtpngaysinh.Value = (DateTime)dgvdmsv.Rows[e.RowIndex].Cells["ngaysinh"].Value;
             txtsodt.Text = dgvdmsv.Rows[e.RowIndex].Cells["sodt"].Value.ToString();
+            txtdt.Text = dgvdmsv.Rows[e.RowIndex].Cells["dantoc"].Value.ToString();
+            txtqt.Text = dgvdmsv.Rows[e.RowIndex].Cells["quoctich"].Value.ToString();
+            txtmcn.Text = dgvdmsv.Rows[e.RowIndex].Cells["macn"].Value.ToString();
+            txttencn.Text = dgvdmsv.Rows[e.RowIndex].Cells["tencn"].Value.ToString();
         }
-
         private void btTim_Click(object sender, EventArgs e)
         {
             string ndTim = txtTim.Text;
@@ -189,17 +196,31 @@ namespace QuanLiSinhVien_DATH
 
         private void btnsua_Click(object sender, EventArgs e)
         {
-            SinhVien sv = new SinhVien();
-            sv.MaSV = txtmasv.Text;
-            sv.HoTen = txthoten.Text;
-            sv.Email = txtemail.Text;
-            sv.NgaySinh = dtpngaysinh.Value;
-            sv.GioiTinh = radnam.Text;
-            sv.Diachi = txtdiachi.Text;
-            sv.Sodt = txtsodt.Text;
-            dssv.sua(sv, viTriHienTai);
-            hienthi(dgvdmsv, dssv.DSsinhvien);
+            foreach (SinhVien sv in dssv.DSsinhvien)
+            {
+                if (sv.MaSV == txtmasv.Text)
+                {
+                    sv.MaSV = txtmasv.Text;
+                    sv.HoTen = txthoten.Text;
+                    sv.Email = txtemail.Text;
+                    sv.NgaySinh = dtpngaysinh.Value;
+                    sv.GioiTinh = radnam.Text;
+                    sv.Diachi = txtdiachi.Text;
+                    sv.Sodt = txtsodt.Text;
+                    sv.Dantoc = txtdt.Text;
+                    sv.Quoctich = txtqt.Text;
+                    sv.MaCN = txtmcn.Text;
+                    sv.TenCN = txttencn.Text;
+                    hienthi(dgvdmsv, dssv.DSsinhvien);
+                    MessageBox.Show("Thông Tin Đã Được Cập Nhật");
+                    return;
+                }
+
+            }
+            MessageBox.Show("Không Tìm Thấy MSSV");
         }
+
+      
     }
 
 }

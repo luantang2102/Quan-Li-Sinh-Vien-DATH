@@ -18,17 +18,28 @@ namespace QuanLiSinhVien_DATH
             this.currentUser = currentUser;
             InitializeComponent();
         }
-
+      
+        private void AddForm(Form a)
+        {
+            this.panel1.Controls.Clear();
+            a.TopLevel = false;
+            a.AutoScroll = true;
+            a.FormBorderStyle = FormBorderStyle.None;
+            a.Dock = DockStyle.Fill;
+            this.Text = a.Text;
+            this.panel1.Controls.Add(a);
+            a.Show();
+        }
         private void sinhVienToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ApplicationForm applicationForm = new ApplicationForm();
-            applicationForm.ShowDialog();
+            ApplicationForm f = new ApplicationForm();
+            AddForm(f);
         }
 
         private void monHocToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MonHocForm monHocForm = new MonHocForm();
-            monHocForm.ShowDialog();
+            MonHocForm a = new MonHocForm();
+            AddForm(a);
         }
 
         private void đangXuatToolStripMenuItem_Click(object sender, EventArgs e)
@@ -39,8 +50,14 @@ namespace QuanLiSinhVien_DATH
 
         private void chuyenNganhToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ChuyenNganhForm chuyenNganhForm = new ChuyenNganhForm();
-            chuyenNganhForm.ShowDialog();
+            ChuyenNganhForm a = new ChuyenNganhForm();
+            AddForm(a);
+        }
+
+        private void MenuForm_Load(object sender, EventArgs e)
+        {
+            WelcomeForm a = new WelcomeForm();
+            AddForm(a);
         }
     }
 }

@@ -80,8 +80,6 @@ namespace QuanLiSinhVien_DATH
             }
         }
 
-
-
         private void dgvMH_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             ViTriHienTai = e.RowIndex;
