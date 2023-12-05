@@ -185,12 +185,6 @@ namespace QuanLiSinhVien_DATH
             MessageBox.Show("Không Tìm Thấy MSSV");
         }
 
-        private void btTim_Click(object sender, EventArgs e)
-        {
-            TimKiemForm tk = new TimKiemForm();
-            tk.Show();
-
-        }
     }
 
 }

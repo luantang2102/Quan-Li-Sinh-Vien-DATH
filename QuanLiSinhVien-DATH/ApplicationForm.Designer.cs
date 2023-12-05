@@ -280,6 +280,7 @@
             this.Column11});
             this.dgvdmsv.Location = new System.Drawing.Point(2, 214);
             this.dgvdmsv.Name = "dgvdmsv";
+            this.dgvdmsv.ReadOnly = true;
             this.dgvdmsv.RowHeadersWidth = 51;
             this.dgvdmsv.Size = new System.Drawing.Size(935, 150);
             this.dgvdmsv.TabIndex = 19;
