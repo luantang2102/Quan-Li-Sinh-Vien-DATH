@@ -12,14 +12,14 @@ namespace QuanLiSinhVien_DATH
 {
     public partial class MenuForm : Form
     {
-        private User currentUser;
-        public MenuForm(User currentUser)
+        private Data saveData;
+        public MenuForm(Data saveData)
         {
-            this.currentUser = currentUser;
+            this.saveData = saveData;
             InitializeComponent();
         }
       
-        private void AddForm(Form a)
+        public void AddForm(Form a)
         {
             this.panel1.Controls.Clear();
             a.TopLevel = false;
@@ -30,10 +30,10 @@ namespace QuanLiSinhVien_DATH
             this.panel1.Controls.Add(a);
             a.Show();
         }
-        private void sinhVienToolStripMenuItem_Click(object sender, EventArgs e)
+        public void sinhVienToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ApplicationForm f = new ApplicationForm();
-            AddForm(f);
+            ApplicationForm applicationForm = new ApplicationForm(saveData);
+            AddForm(applicationForm);
         }
 
         private void monHocToolStripMenuItem_Click(object sender, EventArgs e)
@@ -58,6 +58,17 @@ namespace QuanLiSinhVien_DATH
         {
             WelcomeForm a = new WelcomeForm();
             AddForm(a);
+        }
+
+        private void MenuForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void tìmKiếmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TimKiemForm tk = new TimKiemForm();
+            AddForm(tk);
         }
     }
 }

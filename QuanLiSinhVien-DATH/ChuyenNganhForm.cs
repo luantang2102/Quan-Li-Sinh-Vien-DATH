@@ -29,7 +29,7 @@ namespace QuanLiSinhVien_DATH
             DataGridViewRow row = dgvdscn.Rows[VT];
             txtmacn.Text = dgvdscn.Rows[e.RowIndex].Cells["macn"].Value.ToString();
             txttenchuyennganh.Text = dgvdscn.Rows[e.RowIndex].Cells["tenchuyennganh"].Value.ToString();
-            txtsoluong.Text = dgvdscn.Rows[e.RowIndex].Cells["soluong"].Value.ToString();
+            
 
         }
         private void btnThem_Click(object sender, EventArgs e)
@@ -37,7 +37,6 @@ namespace QuanLiSinhVien_DATH
             ChuyenNganh cn = new ChuyenNganh();
             cn.MaCN = txtmacn.Text;
             cn.TenCN = txttenchuyennganh.Text;
-            cn.SoLuong = txtsoluong.Text;
 
             if (dscn.kiemTraTrungMa(txtmacn.Text))
             {
@@ -70,12 +69,18 @@ namespace QuanLiSinhVien_DATH
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            ChuyenNganh cn = new ChuyenNganh();
-            cn.MaCN = txtmacn.Text;
-            cn.TenCN = txttenchuyennganh.Text;
-            cn.SoLuong = txtsoluong.Text;
-            dscn.sua(cn, VT);
-            hienthi(dgvdscn, dscn.DSchuyennganh);
+            foreach(ChuyenNganh cn in dscn.DSchuyennganh)
+            {
+                if(cn.MaCN==txtmacn.Text)
+                {
+                    cn.MaCN = txtmacn.Text;
+                    cn.TenCN = txttenchuyennganh.Text;
+                    hienthi(dgvdscn, dscn.DSchuyennganh);
+                    MessageBox.Show("Thông Tin Đã Được Cập Nhật");
+                    return;
+                }    
+            }
+            MessageBox.Show("Không Tìm Thấy MSSV");
         }
 
         private void ChuyenNganhForm_Load(object sender, EventArgs e)
@@ -83,38 +88,38 @@ namespace QuanLiSinhVien_DATH
             dscn = new DSCN();
         }
 
-        private void btnTim_Click(object sender, EventArgs e)
-        {
-            string ndTim = txtTim.Text;
+        //private void btnTim_Click(object sender, EventArgs e)
+        //{
+        //    string ndTim = txtTim.Text;
 
-            dgvdscn.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            try
-            {
-                dgvdscn.ClearSelection();
-                bool Kiemtra = false;
-                int Cot = cbTim.SelectedIndex;
-                if (Cot >= 0 && Cot < dgvdscn.Columns.Count)
-                {
-                    for (int i = 0; i < dgvdscn.Rows.Count; i++)
-                    {
-                        DataGridViewCell cell = dgvdscn.Rows[i].Cells[Cot];
-                        if (cell.Value != null && cell.Value.ToString().Equals(ndTim))
-                        {
-                            dgvdscn.Rows[i].Selected = true;
-                            Kiemtra = true;
-                        }
-                    }
-                }
-                if (!Kiemtra)
-                {
-                    MessageBox.Show("Không thể tìm thấy nội dung" + txtTim.Text, "Thông báo");
-                    return;
-                }
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
-        }
+        //    dgvdscn.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        //    try
+        //    {
+        //        dgvdscn.ClearSelection();
+        //        bool Kiemtra = false;
+        //        int Cot = cbTim.SelectedIndex;
+        //        if (Cot >= 0 && Cot < dgvdscn.Columns.Count)
+        //        {
+        //            for (int i = 0; i < dgvdscn.Rows.Count; i++)
+        //            {
+        //                DataGridViewCell cell = dgvdscn.Rows[i].Cells[Cot];
+        //                if (cell.Value != null && cell.Value.ToString().Equals(ndTim))
+        //                {
+        //                    dgvdscn.Rows[i].Selected = true;
+        //                    Kiemtra = true;
+        //                }
+        //            }
+        //        }
+        //        if (!Kiemtra)
+        //        {
+        //            MessageBox.Show("Không thể tìm thấy nội dung" + txtTim.Text, "Thông báo");
+        //            return;
+        //        }
+        //    }
+        //    catch (Exception exc)
+        //    {
+        //        MessageBox.Show(exc.Message);
+        //    }
+        //}
     }
 }

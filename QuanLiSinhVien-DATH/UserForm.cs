@@ -68,11 +68,8 @@ namespace QuanLiSinhVien_DATH
                 if (user.Username.Equals(usernameTB.Text) && user.Password.Equals(passwordTB.Text))
                 {
                     MessageBox.Show("Đăng nhập thành công");
-                    
                     this.Hide();
-                    //ApplicationForm applicationForm = new ApplicationForm(user, saveData);
-                    //applicationForm.ShowDialog();
-                    MenuForm menu = new MenuForm(user);
+                    MenuForm menu = new MenuForm(saveData);
                     menu.ShowDialog();
                     this.Close();
                     return;

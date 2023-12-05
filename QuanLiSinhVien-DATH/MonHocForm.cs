@@ -93,14 +93,22 @@ namespace QuanLiSinhVien_DATH
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            MonHoc mh = new MonHoc();
-            mh.MaMH = txtMaMH.Text;
-            mh.TenMH = txtTenMH.Text;
-            mh.TinChi = txtSoTC.Text;
-            mh.TietLT = txtTietLT.Text;
-            mh.TietTH = txtTietTH.Text;
-            dsmh.sua(mh, ViTriHienTai);
-            hienthi(dgvMH, dsmh.DSMonHoc);
+            foreach (MonHoc mh in dsmh.DSMonHoc)
+            {
+                if (mh.MaMH == txtMaMH.Text)
+                {
+                    mh.MaMH = txtMaMH.Text;
+                    mh.TenMH = txtTenMH.Text;
+                    mh.TinChi = txtSoTC.Text;
+                    mh.TietLT = txtTietLT.Text;
+                    mh.TietTH = txtTietTH.Text;
+                    hienthi(dgvMH, dsmh.DSMonHoc);
+                    MessageBox.Show("Thông Tin Đã Được Cập Nhật");
+                    return;
+                }
+            }
+            MessageBox.Show("Không Tìm Thấy MSSV");
         }
+
     }
 }

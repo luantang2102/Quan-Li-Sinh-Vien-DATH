@@ -106,6 +106,12 @@
       <DependentUpon>MonHocForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SinhVien.cs" />
+    <Compile Include="TimKiemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TimKiemForm.Designer.cs">
+      <DependentUpon>TimKiemForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="User.cs" />
     <Compile Include="UserForm.cs">
       <SubType>Form</SubType>
@@ -132,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MonHocForm.resx">
       <DependentUpon>MonHocForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimKiemForm.resx">
+      <DependentUpon>TimKiemForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>

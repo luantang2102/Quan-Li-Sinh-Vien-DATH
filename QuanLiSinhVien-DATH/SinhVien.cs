@@ -46,22 +46,22 @@ namespace QuanLiSinhVien_DATH
             get { return _gioitinh; }
             set { this._gioitinh = value; }
         }
-        public string Sodt
+        public string SoDT
         {
             get { return this._sodt; }
             set { this._sodt = value; }
         }
-        public string Diachi
+        public string DiaChi
         {
             get { return this._diachi; }
             set { this._diachi = value; }
         }
-        public string Dantoc
+        public string DanToc
         {
             get { return this._dantoc; }
             set { this._dantoc = value; }
         }
-        public string Quoctich
+        public string QuocTich
         {
             get { return this._quoctich; }
             set { this._quoctich = value; }
