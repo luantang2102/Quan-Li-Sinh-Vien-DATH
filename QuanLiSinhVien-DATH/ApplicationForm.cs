@@ -129,30 +129,7 @@ namespace QuanLiSinhVien_DATH
             }
         }
 
-        private void dgvdmsv_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            viTriHienTai = e.RowIndex;
-            DataGridViewRow row = dgvdmsv.Rows[viTriHienTai];
-            txtmasv.Text = dgvdmsv.Rows[e.RowIndex].Cells["masv"].Value.ToString();
-            txthoten.Text = dgvdmsv.Rows[e.RowIndex].Cells["hoten"].Value.ToString();
-            if (dgvdmsv.Rows[e.RowIndex].Cells["gioitinh"].Value.ToString().Equals("Nam"))
-            {
-                radnam.Checked = true;
-            }
-            else
-            {
-                radnu.Checked = true; ;
-            }
-            dtpngaysinh.Value = (DateTime)dgvdmsv.Rows[e.RowIndex].Cells["ngaysinh"].Value;
-            txtdiachi.Text = dgvdmsv.Rows[e.RowIndex].Cells["diachi"].Value.ToString();
-            txtemail.Text = dgvdmsv.Rows[e.RowIndex].Cells["email"].Value.ToString();
-            txtdt.Text = dgvdmsv.Rows[e.RowIndex].Cells["dantoc"].Value.ToString();
-            txtqt.Text = dgvdmsv.Rows[e.RowIndex].Cells["quoctich"].Value.ToString();
-            txtsodt.Text = dgvdmsv.Rows[e.RowIndex].Cells["sodt"].Value.ToString();
-            txtmcn.Text = dgvdmsv.Rows[e.RowIndex].Cells["macn"].Value.ToString();
-            txttencn.Text = dgvdmsv.Rows[e.RowIndex].Cells["tencn"].Value.ToString();
-        }
-        
+
 
         private void ApplicationForm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -185,6 +162,31 @@ namespace QuanLiSinhVien_DATH
             MessageBox.Show("Không Tìm Thấy MSSV");
         }
 
+        private void dgvdmsv_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            viTriHienTai = e.RowIndex;
+            DataGridViewRow row = dgvdmsv.Rows[viTriHienTai];
+            txtmasv.Text = dgvdmsv.Rows[e.RowIndex].Cells["masv"].Value.ToString();
+            txthoten.Text = dgvdmsv.Rows[e.RowIndex].Cells["hoten"].Value.ToString();
+            if (dgvdmsv.Rows[e.RowIndex].Cells["gioitinh"].Value.ToString().Equals("Nam"))
+            {
+                radnam.Checked = true;
+            }
+            else
+            {
+                radnu.Checked = true; ;
+            }
+            dtpngaysinh.Value = (DateTime)dgvdmsv.Rows[e.RowIndex].Cells["ngaysinh"].Value;
+            txtdiachi.Text = dgvdmsv.Rows[e.RowIndex].Cells["diachi"].Value.ToString();
+            txtemail.Text = dgvdmsv.Rows[e.RowIndex].Cells["email"].Value.ToString();
+            txtdt.Text = dgvdmsv.Rows[e.RowIndex].Cells["dantoc"].Value.ToString();
+            txtqt.Text = dgvdmsv.Rows[e.RowIndex].Cells["quoctich"].Value.ToString();
+            txtsodt.Text = dgvdmsv.Rows[e.RowIndex].Cells["sodt"].Value.ToString();
+            txtmcn.Text = dgvdmsv.Rows[e.RowIndex].Cells["macn"].Value.ToString();
+            txttencn.Text = dgvdmsv.Rows[e.RowIndex].Cells["tencn"].Value.ToString();
+        }
+
+   
     }
 
 }

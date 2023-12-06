@@ -34,6 +34,7 @@ namespace QuanLiSinhVien_DATH
         {
             ApplicationForm applicationForm = new ApplicationForm(saveData);
             AddForm(applicationForm);
+            //applicationForm.ShowDialog();
         }
 
         private void monHocToolStripMenuItem_Click(object sender, EventArgs e)
