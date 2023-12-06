@@ -18,14 +18,11 @@ namespace QuanLiSinhVien_DATH
     {
         private DSSV dssv;
         private int viTriHienTai = 0;
-        private User currentUser;
-
         private Data saveData;
 
-        public ApplicationForm(/*User currentUser,*/ /*Data saveData*/)
+        public ApplicationForm(Data saveData)
         {
-            //this.currentUser = currentUser;
-            //this.saveData = saveData;   
+            this.saveData = saveData;   
             InitializeComponent();
 
         }
@@ -95,12 +92,16 @@ namespace QuanLiSinhVien_DATH
             {
                 sv.GioiTinh = "Nữ";
             }
-            sv.Diachi = txtdiachi.Text;
-            sv.Sodt = txtsodt.Text;
+            sv.DiaChi = txtdiachi.Text;
+            sv.SoDT = txtsodt.Text;
+            sv.DanToc = txtdt.Text;
+            sv.QuocTich = txtqt.Text;
+            sv.MaCN = txtmcn.Text;
+            sv.TenCN = txttencn.Text;
 
             if (dssv.kiemTraTrungMa(txtmasv.Text))
             {
-                MessageBox.Show("ma nay da co", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Mã này đã có.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtmasv.Focus();
             }
             else
@@ -108,13 +109,14 @@ namespace QuanLiSinhVien_DATH
                 dssv.them(sv);
                 hienthi(dgvdmsv, dssv.DSsinhvien);
             }
+            ghiFile();
         }
 
         private void btnxoa_Click(object sender, EventArgs e)
         {
             try
             {
-                DialogResult ketQua = MessageBox.Show("Ban thuc su muon xoa?,", "Thong bao", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult ketQua = MessageBox.Show("Bạn thực sự muốn xóa ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (ketQua == DialogResult.Yes)
                 {
                     this.dssv.xoaViTri(viTriHienTai);
@@ -123,18 +125,16 @@ namespace QuanLiSinhVien_DATH
             }
             catch (Exception)
             {
-                MessageBox.Show("bạn đã nhập sai!");
+                MessageBox.Show("Bạn đã nhập sai!");
             }
         }
 
-        private void dgvdmsv_RowEnter(object sender, DataGridViewCellEventArgs e)
+        private void dgvdmsv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             viTriHienTai = e.RowIndex;
             DataGridViewRow row = dgvdmsv.Rows[viTriHienTai];
             txtmasv.Text = dgvdmsv.Rows[e.RowIndex].Cells["masv"].Value.ToString();
             txthoten.Text = dgvdmsv.Rows[e.RowIndex].Cells["hoten"].Value.ToString();
-            txtemail.Text = dgvdmsv.Rows[e.RowIndex].Cells["email"].Value.ToString();
-            txtdiachi.Text = dgvdmsv.Rows[e.RowIndex].Cells["diachi"].Value.ToString();
             if (dgvdmsv.Rows[e.RowIndex].Cells["gioitinh"].Value.ToString().Equals("Nam"))
             {
                 radnam.Checked = true;
@@ -143,64 +143,48 @@ namespace QuanLiSinhVien_DATH
             {
                 radnu.Checked = true; ;
             }
-
             dtpngaysinh.Value = (DateTime)dgvdmsv.Rows[e.RowIndex].Cells["ngaysinh"].Value;
+            txtdiachi.Text = dgvdmsv.Rows[e.RowIndex].Cells["diachi"].Value.ToString();
+            txtemail.Text = dgvdmsv.Rows[e.RowIndex].Cells["email"].Value.ToString();
+            txtdt.Text = dgvdmsv.Rows[e.RowIndex].Cells["dantoc"].Value.ToString();
+            txtqt.Text = dgvdmsv.Rows[e.RowIndex].Cells["quoctich"].Value.ToString();
             txtsodt.Text = dgvdmsv.Rows[e.RowIndex].Cells["sodt"].Value.ToString();
+            txtmcn.Text = dgvdmsv.Rows[e.RowIndex].Cells["macn"].Value.ToString();
+            txttencn.Text = dgvdmsv.Rows[e.RowIndex].Cells["tencn"].Value.ToString();
         }
-
-        private void btnsua_Click(object sender, EventArgs e)
-        {
-            SinhVien sv = new SinhVien();
-            sv.MaSV = txtmasv.Text;
-            sv.HoTen = txthoten.Text;
-            sv.Email = txtemail.Text;
-            sv.NgaySinh = dtpngaysinh.Value;
-            sv.GioiTinh = radnam.Text;
-            sv.Diachi = txtdiachi.Text;
-            sv.Sodt = txtsodt.Text;
-            dssv.sua(sv, viTriHienTai);
-            hienthi(dgvdmsv, dssv.DSsinhvien);
-        }
-
-
-        private void btTim_Click(object sender, EventArgs e)
-        {
-            string ndTim = txtTim.Text;
-
-            dgvdmsv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            try
-            {
-                dgvdmsv.ClearSelection();
-                bool Kiemtra = false;
-                int Cot = cbTim.SelectedIndex;
-                if (Cot >= 0 && Cot < dgvdmsv.Columns.Count)
-                {
-                    for (int i = 0; i < dgvdmsv.Rows.Count; i++)
-                    {
-                        DataGridViewCell cell = dgvdmsv.Rows[i].Cells[Cot];
-                        if (cell.Value != null && cell.Value.ToString().Equals(ndTim))
-                        {
-                            dgvdmsv.Rows[i].Selected = true;
-                            Kiemtra = true;
-                        }
-                    }
-                }
-                if (!Kiemtra)
-                {
-                    MessageBox.Show("Nội Dung: " + txtTim.Text, "Không Thể Tìm thấy");
-                    return;
-                }
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
-        }
+        
 
         private void ApplicationForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             ghiFile();
         }
+
+        private void btnsua_Click(object sender, EventArgs e)
+        {
+            foreach (SinhVien sv in dssv.DSsinhvien)
+            {
+                if (sv.MaSV == txtmasv.Text)
+                {
+                    sv.MaSV = txtmasv.Text;
+                    sv.HoTen = txthoten.Text;
+                    sv.Email = txtemail.Text;
+                    sv.NgaySinh = dtpngaysinh.Value;
+                    sv.GioiTinh = radnam.Text;
+                    sv.DiaChi = txtdiachi.Text;
+                    sv.SoDT = txtsodt.Text;
+                    sv.DanToc = txtdt.Text;
+                    sv.QuocTich = txtqt.Text;
+                    sv.MaCN = txtmcn.Text;
+                    sv.TenCN = txttencn.Text;
+                    hienthi(dgvdmsv, dssv.DSsinhvien);
+                    MessageBox.Show("Thông Tin Đã Được Cập Nhật");
+                    return;
+                }
+
+            }
+            MessageBox.Show("Không Tìm Thấy MSSV");
+        }
+
     }
 
 }

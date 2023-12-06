@@ -15,6 +15,10 @@ namespace QuanLiSinhVien_DATH
         private string _gioitinh;
         private string _diachi;
         private string _sodt;
+        private string _dantoc;
+        private string _quoctich;
+        private string _macn;
+        private string _tencn;
 
         //properties
         public string MaSV
@@ -42,16 +46,37 @@ namespace QuanLiSinhVien_DATH
             get { return _gioitinh; }
             set { this._gioitinh = value; }
         }
-        public string Sodt
+        public string SoDT
         {
             get { return this._sodt; }
             set { this._sodt = value; }
         }
-        public string Diachi
+        public string DiaChi
         {
             get { return this._diachi; }
             set { this._diachi = value; }
         }
+        public string DanToc
+        {
+            get { return this._dantoc; }
+            set { this._dantoc = value; }
+        }
+        public string QuocTich
+        {
+            get { return this._quoctich; }
+            set { this._quoctich = value; }
+        }
+        public string MaCN
+        {
+            get { return this._macn; }
+            set { this._macn = value; }
+        }
+        public string TenCN
+        {
+            get { return this._tencn; }
+            set { this._tencn = value; }
+        }
+
 
         //các phương thức tạo lập 
         //pttl không tham số
@@ -64,10 +89,14 @@ namespace QuanLiSinhVien_DATH
             this._gioitinh = "";
             this._diachi = "";
             this._sodt = "";
+            this._dantoc = "";
+            this._quoctich = "";
+            this._macn = "";
+            this._tencn = "";
         }
         // pttl có tham số
         public SinhVien(string masv, string email, string hoten,
-            string diachi, string sodt, DateTime ngaysinh, string gioitinh)
+            string diachi, string sodt, DateTime ngaysinh, string gioitinh, string dantoc, string quoctich, string macn, string tencn)
         {
             this._masv = masv;
             this._email = email;
@@ -76,6 +105,10 @@ namespace QuanLiSinhVien_DATH
             this._sodt = sodt;
             this._ngaysinh = ngaysinh;
             this._gioitinh = GioiTinh;
+            this._dantoc = dantoc;
+            this._quoctich = quoctich;
+            this._macn = macn;
+            this._tencn = tencn;
         }
 
     }
