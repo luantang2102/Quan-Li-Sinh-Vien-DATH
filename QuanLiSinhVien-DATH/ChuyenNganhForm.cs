@@ -88,6 +88,8 @@ namespace QuanLiSinhVien_DATH
             dscn = new DSCN();
         }
 
+    
+
         //private void btnTim_Click(object sender, EventArgs e)
         //{
         //    string ndTim = txtTim.Text;

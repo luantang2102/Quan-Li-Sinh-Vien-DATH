@@ -66,16 +66,8 @@ namespace QuanLiSinhVien_DATH
             get { return this._quoctich; }
             set { this._quoctich = value; }
         }
-        public string MaCN
-        {
-            get { return this._macn; }
-            set { this._macn = value; }
-        }
-        public string TenCN
-        {
-            get { return this._tencn; }
-            set { this._tencn = value; }
-        }
+     
+      
 
 
         //các phương thức tạo lập 
@@ -91,8 +83,7 @@ namespace QuanLiSinhVien_DATH
             this._sodt = "";
             this._dantoc = "";
             this._quoctich = "";
-            this._macn = "";
-            this._tencn = "";
+           
         }
         // pttl có tham số
         public SinhVien(string masv, string email, string hoten,
@@ -107,8 +98,7 @@ namespace QuanLiSinhVien_DATH
             this._gioitinh = GioiTinh;
             this._dantoc = dantoc;
             this._quoctich = quoctich;
-            this._macn = macn;
-            this._tencn = tencn;
+       
         }
 
     }

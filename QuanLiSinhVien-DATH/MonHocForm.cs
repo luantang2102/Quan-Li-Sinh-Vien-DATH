@@ -80,10 +80,10 @@ namespace QuanLiSinhVien_DATH
             }
         }
 
-        private void dgvMH_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvMH_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             ViTriHienTai = e.RowIndex;
-            _ = dgvMH.Rows[ViTriHienTai];
+            DataGridViewRow row = dgvMH.Rows[ViTriHienTai];
             txtMaMH.Text = dgvMH.Rows[e.RowIndex].Cells["mamh"].Value.ToString();
             txtTenMH.Text = dgvMH.Rows[e.RowIndex].Cells["tenMH"].Value.ToString();
             txtSoTC.Text = dgvMH.Rows[e.RowIndex].Cells["soTC"].Value.ToString();
@@ -110,5 +110,6 @@ namespace QuanLiSinhVien_DATH
             MessageBox.Show("Không Tìm Thấy MSSV");
         }
 
+  
     }
 }
