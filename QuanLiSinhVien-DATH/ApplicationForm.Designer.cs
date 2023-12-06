@@ -49,6 +49,10 @@
             this.btnxoa = new System.Windows.Forms.Button();
             this.btnsua = new System.Windows.Forms.Button();
             this.dgvdmsv = new System.Windows.Forms.DataGridView();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtdt = new System.Windows.Forms.TextBox();
+            this.txtqt = new System.Windows.Forms.TextBox();
             this.masv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hoten = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gioitinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,16 +62,6 @@
             this.dantoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quoctich = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sodt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.macn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tencn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtdt = new System.Windows.Forms.TextBox();
-            this.txtqt = new System.Windows.Forms.TextBox();
-            this.txtmcn = new System.Windows.Forms.TextBox();
-            this.txttencn = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdmsv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -141,9 +135,8 @@
             // 
             // label8
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(466, 158);
+            this.label8.Location = new System.Drawing.Point(298, 118);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(38, 13);
             this.label8.TabIndex = 7;
@@ -212,8 +205,7 @@
             // 
             // txtsodt
             // 
-            this.txtsodt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtsodt.Location = new System.Drawing.Point(523, 155);
+            this.txtsodt.Location = new System.Drawing.Point(355, 115);
             this.txtsodt.Name = "txtsodt";
             this.txtsodt.Size = new System.Drawing.Size(100, 20);
             this.txtsodt.TabIndex = 15;
@@ -275,9 +267,7 @@
             this.email,
             this.dantoc,
             this.quoctich,
-            this.sodt,
-            this.macn,
-            this.tencn});
+            this.sodt});
             this.dgvdmsv.Location = new System.Drawing.Point(2, 214);
             this.dgvdmsv.Name = "dgvdmsv";
             this.dgvdmsv.ReadOnly = true;
@@ -285,6 +275,38 @@
             this.dgvdmsv.Size = new System.Drawing.Size(935, 150);
             this.dgvdmsv.TabIndex = 19;
             this.dgvdmsv.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdmsv_RowEnter);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(288, 84);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(57, 13);
+            this.label11.TabIndex = 25;
+            this.label11.Text = "Quốc Tịch";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(288, 51);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(49, 13);
+            this.label13.TabIndex = 25;
+            this.label13.Text = "Dân Tộc";
+            // 
+            // txtdt
+            // 
+            this.txtdt.Location = new System.Drawing.Point(355, 48);
+            this.txtdt.Name = "txtdt";
+            this.txtdt.Size = new System.Drawing.Size(100, 20);
+            this.txtdt.TabIndex = 26;
+            // 
+            // txtqt
+            // 
+            this.txtqt.Location = new System.Drawing.Point(355, 81);
+            this.txtqt.Name = "txtqt";
+            this.txtqt.Size = new System.Drawing.Size(100, 20);
+            this.txtqt.TabIndex = 26;
             // 
             // masv
             // 
@@ -358,99 +380,15 @@
             this.sodt.Name = "sodt";
             this.sodt.ReadOnly = true;
             // 
-            // macn
-            // 
-            this.macn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.macn.DataPropertyName = "MaCN";
-            this.macn.HeaderText = "Mã Chuyên Ngành";
-            this.macn.Name = "macn";
-            this.macn.ReadOnly = true;
-            // 
-            // tencn
-            // 
-            this.tencn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tencn.DataPropertyName = "TenCN";
-            this.tencn.HeaderText = "Tên Chuyên Ngành";
-            this.tencn.Name = "tencn";
-            this.tencn.ReadOnly = true;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(288, 84);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(57, 13);
-            this.label11.TabIndex = 25;
-            this.label11.Text = "Quốc Tịch";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(288, 158);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(44, 13);
-            this.label12.TabIndex = 25;
-            this.label12.Text = "Tên CN";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(288, 51);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(49, 13);
-            this.label13.TabIndex = 25;
-            this.label13.Text = "Dân Tộc";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(288, 119);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(40, 13);
-            this.label14.TabIndex = 25;
-            this.label14.Text = "Mã CN";
-            // 
-            // txtdt
-            // 
-            this.txtdt.Location = new System.Drawing.Point(355, 48);
-            this.txtdt.Name = "txtdt";
-            this.txtdt.Size = new System.Drawing.Size(100, 20);
-            this.txtdt.TabIndex = 26;
-            // 
-            // txtqt
-            // 
-            this.txtqt.Location = new System.Drawing.Point(355, 81);
-            this.txtqt.Name = "txtqt";
-            this.txtqt.Size = new System.Drawing.Size(100, 20);
-            this.txtqt.TabIndex = 26;
-            // 
-            // txtmcn
-            // 
-            this.txtmcn.Location = new System.Drawing.Point(355, 115);
-            this.txtmcn.Name = "txtmcn";
-            this.txtmcn.Size = new System.Drawing.Size(100, 20);
-            this.txtmcn.TabIndex = 26;
-            // 
-            // txttencn
-            // 
-            this.txttencn.Location = new System.Drawing.Point(355, 155);
-            this.txttencn.Name = "txttencn";
-            this.txttencn.Size = new System.Drawing.Size(100, 20);
-            this.txttencn.TabIndex = 26;
-            // 
             // ApplicationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(949, 365);
-            this.Controls.Add(this.txttencn);
-            this.Controls.Add(this.txtmcn);
             this.Controls.Add(this.txtqt);
             this.Controls.Add(this.txtdt);
-            this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.dgvdmsv);
             this.Controls.Add(this.btnsua);
@@ -506,13 +444,9 @@
         private System.Windows.Forms.Button btnsua;
         private System.Windows.Forms.DataGridView dgvdmsv;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtdt;
         private System.Windows.Forms.TextBox txtqt;
-        private System.Windows.Forms.TextBox txtmcn;
-        private System.Windows.Forms.TextBox txttencn;
         private System.Windows.Forms.DataGridViewTextBoxColumn masv;
         private System.Windows.Forms.DataGridViewTextBoxColumn hoten;
         private System.Windows.Forms.DataGridViewTextBoxColumn gioitinh;
@@ -522,7 +456,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dantoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn quoctich;
         private System.Windows.Forms.DataGridViewTextBoxColumn sodt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn macn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tencn;
     }
 }

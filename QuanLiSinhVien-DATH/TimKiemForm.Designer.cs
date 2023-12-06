@@ -98,9 +98,7 @@
             "Email",
             "Dân Tộc",
             "Quốc Tịch",
-            "Số DT",
-            "Mã CN",
-            "Tên CN"});
+            "Số DT"});
             this.cBTim.Location = new System.Drawing.Point(326, 102);
             this.cBTim.Margin = new System.Windows.Forms.Padding(2);
             this.cBTim.Name = "cBTim";

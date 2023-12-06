@@ -96,8 +96,7 @@ namespace QuanLiSinhVien_DATH
             sv.SoDT = txtsodt.Text;
             sv.DanToc = txtdt.Text;
             sv.QuocTich = txtqt.Text;
-            sv.MaCN = txtmcn.Text;
-            sv.TenCN = txttencn.Text;
+   ;
 
             if (dssv.kiemTraTrungMa(txtmasv.Text))
             {
@@ -151,8 +150,7 @@ namespace QuanLiSinhVien_DATH
                     sv.SoDT = txtsodt.Text;
                     sv.DanToc = txtdt.Text;
                     sv.QuocTich = txtqt.Text;
-                    sv.MaCN = txtmcn.Text;
-                    sv.TenCN = txttencn.Text;
+               
                     hienthi(dgvdmsv, dssv.DSsinhvien);
                     MessageBox.Show("Thông Tin Đã Được Cập Nhật");
                     return;
@@ -182,8 +180,7 @@ namespace QuanLiSinhVien_DATH
             txtdt.Text = dgvdmsv.Rows[e.RowIndex].Cells["dantoc"].Value.ToString();
             txtqt.Text = dgvdmsv.Rows[e.RowIndex].Cells["quoctich"].Value.ToString();
             txtsodt.Text = dgvdmsv.Rows[e.RowIndex].Cells["sodt"].Value.ToString();
-            txtmcn.Text = dgvdmsv.Rows[e.RowIndex].Cells["macn"].Value.ToString();
-            txttencn.Text = dgvdmsv.Rows[e.RowIndex].Cells["tencn"].Value.ToString();
+          
         }
 
    
