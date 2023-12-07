@@ -88,40 +88,40 @@ namespace QuanLiSinhVien_DATH
             dscn = new DSCN();
         }
 
-    
 
-        //private void btnTim_Click(object sender, EventArgs e)
-        //{
-        //    string ndTim = txtTim.Text;
 
-        //    dgvdscn.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        //    try
-        //    {
-        //        dgvdscn.ClearSelection();
-        //        bool Kiemtra = false;
-        //        int Cot = cbTim.SelectedIndex;
-        //        if (Cot >= 0 && Cot < dgvdscn.Columns.Count)
-        //        {
-        //            for (int i = 0; i < dgvdscn.Rows.Count; i++)
-        //            {
-        //                DataGridViewCell cell = dgvdscn.Rows[i].Cells[Cot];
-        //                if (cell.Value != null && cell.Value.ToString().Equals(ndTim))
-        //                {
-        //                    dgvdscn.Rows[i].Selected = true;
-        //                    Kiemtra = true;
-        //                }
-        //            }
-        //        }
-        //        if (!Kiemtra)
-        //        {
-        //            MessageBox.Show("Không thể tìm thấy nội dung" + txtTim.Text, "Thông báo");
-        //            return;
-        //        }
-        //    }
-        //    catch (Exception exc)
-        //    {
-        //        MessageBox.Show(exc.Message);
-        //    }
-        //}
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            string ndTim = txtTim.Text;
+
+            dgvdscn.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            try
+            {
+                dgvdscn.ClearSelection();
+                bool Kiemtra = false;
+                int Cot = cbTim.SelectedIndex;
+                if (Cot >= 0 && Cot < dgvdscn.Columns.Count)
+                {
+                    for (int i = 0; i < dgvdscn.Rows.Count; i++)
+                    {
+                        DataGridViewCell cell = dgvdscn.Rows[i].Cells[Cot];
+                        if (cell.Value != null && cell.Value.ToString().Equals(ndTim))
+                        {
+                            dgvdscn.Rows[i].Selected = true;
+                            Kiemtra = true;
+                        }
+                    }
+                }
+                if (!Kiemtra)
+                {
+                    MessageBox.Show("Không thể tìm thấy nội dung" + txtTim.Text, "Thông báo");
+                    return;
+                }
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
     }
 }

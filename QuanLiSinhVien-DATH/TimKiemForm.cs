@@ -49,8 +49,7 @@ namespace QuanLiSinhVien_DATH
                         dataTable.Columns.Add("Dân Tộc");
                         dataTable.Columns.Add("Quốc Tịch");
                         dataTable.Columns.Add("Số Điện Thoại");
-                        dataTable.Columns.Add("Mã Chuyên Ngành");
-                        dataTable.Columns.Add("Tên Chuyên Ngành");
+                       
 
                         foreach (var sinhvien in data.DanhSachSinhVien.DSsinhvien)
                         {
