@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QuanLiSinhVien_DATH
 {
-    internal class DSCN
+    public class DSCN
     {
         private List<ChuyenNganh> _dsChuyenNganh;
         public DSCN()
@@ -34,11 +34,11 @@ namespace QuanLiSinhVien_DATH
         {
             this._dsChuyenNganh.RemoveAt(vitri);
         }
-        public bool kiemTraTrungMa(string ma)
+        public bool kiemTraTrungMa(string ma, string ten)
         {
             foreach (ChuyenNganh cn in this._dsChuyenNganh)
             {
-                if (cn.MaCN.Equals(ma))
+                if (cn.MaCN.Equals(ma)||cn.TenCN.Equals(ten))
                     return true;
             }
             return false;

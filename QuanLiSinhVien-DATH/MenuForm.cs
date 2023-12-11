@@ -7,18 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
+using System.Security.Claims;
+using System.IO;
+using System.Text.Json;
+using System.Runtime.CompilerServices;
 
 namespace QuanLiSinhVien_DATH
 {
     public partial class MenuForm : Form
     {
+        public DSSV dssv;
+        public DSCN dscn;
         private Data saveData;
+        private ApplicationForm applicationForm;
+        private ChuyenNganhForm chuyenNganhForm;
         public MenuForm(Data saveData)
         {
             this.saveData = saveData;
             InitializeComponent();
+            
+
         }
-      
         public void AddForm(Form a)
         {
             this.panel1.Controls.Clear();
@@ -32,9 +42,8 @@ namespace QuanLiSinhVien_DATH
         }
         public void sinhVienToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ApplicationForm applicationForm = new ApplicationForm(saveData);
+            applicationForm = new ApplicationForm(dssv, dscn);
             AddForm(applicationForm);
-            //applicationForm.ShowDialog();
         }
 
         private void monHocToolStripMenuItem_Click(object sender, EventArgs e)
@@ -51,25 +60,86 @@ namespace QuanLiSinhVien_DATH
 
         private void chuyenNganhToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ChuyenNganhForm a = new ChuyenNganhForm();
-            AddForm(a);
+            chuyenNganhForm = new ChuyenNganhForm(dssv, dscn);
+            AddForm(chuyenNganhForm);
         }
 
         private void MenuForm_Load(object sender, EventArgs e)
         {
+            docFile();
             WelcomeForm a = new WelcomeForm();
             AddForm(a);
         }
 
         private void MenuForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            ghiFile();
             Application.Exit();
         }
 
-        private void tìmKiếmToolStripMenuItem_Click(object sender, EventArgs e)
+        private void quảnLýToolStripMenuItem_DropDownClosed(object sender, EventArgs e)
         {
-            TimKiemForm tk = new TimKiemForm();
-            AddForm(tk);
+            try
+            {
+                docds();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi xảy ra: {ex.Message}");
+            }
+        }
+        private void docds()
+        {
+            if (applicationForm != null)
+            {
+                var fileData = applicationForm.File1();
+                if (fileData != null)
+                    this.dssv = fileData;
+            }
+            if (chuyenNganhForm != null)
+            {
+                var fileData = chuyenNganhForm.File1();
+                if (fileData != null)
+                    this.dscn = fileData;
+            }
+        }
+        private void docFile()
+        {
+            try
+            {
+                string json = File.ReadAllText("data.json");
+                Data data = JsonSerializer.Deserialize<Data>(json);
+                this.dssv = data.DanhSachSinhVien;
+                this.dscn = data.DanhSachChuyenNganh;
+
+            }
+            catch (Exception ex)
+            {
+                dssv = new DSSV();
+            }
+        }
+        private void ghiFile()
+        {
+            try
+            {
+                docds();
+                saveData.DanhSachSinhVien = this.dssv;
+                saveData.DanhSachChuyenNganh = this.dscn;
+
+                string jsonString = JsonSerializer.Serialize(saveData);
+                string filePath = "data.json";
+
+                if (File.Exists(filePath))
+                {
+                    File.Delete(filePath);
+                }
+
+                File.WriteAllText(filePath, jsonString);
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }

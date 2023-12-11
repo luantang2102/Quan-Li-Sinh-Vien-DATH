@@ -66,7 +66,16 @@ namespace QuanLiSinhVien_DATH
             get { return this._quoctich; }
             set { this._quoctich = value; }
         }
-     
+        public string MaCN
+        {
+            get { return this._macn; }
+            set { this._macn = value; }
+        }
+        public string TenCN
+        {
+            get { return this._tencn; }
+            set { this._tencn = value; }
+        }
       
 
 

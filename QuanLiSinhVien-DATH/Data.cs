@@ -9,6 +9,7 @@ namespace QuanLiSinhVien_DATH
     public class Data
     {
         public DSSV DanhSachSinhVien { get; set; }     
-        public DSGV DanhSachGiaoVien { get; set; }        
+        public DSGV DanhSachGiaoVien { get; set; }    
+        public DSCN DanhSachChuyenNganh { get; set; }
     }
 }

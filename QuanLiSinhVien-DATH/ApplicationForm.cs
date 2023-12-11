@@ -11,18 +11,20 @@ using System.Globalization;
 using System.Security.Claims;
 using System.IO;
 using System.Text.Json;
+using System.Runtime.CompilerServices;
 
 namespace QuanLiSinhVien_DATH
 {
     public partial class ApplicationForm : Form
     {
         private DSSV dssv;
+        private DSCN dscn;
         private int viTriHienTai = 0;
-        private Data saveData;
 
-        public ApplicationForm(Data saveData)
+        public ApplicationForm(DSSV dssv,DSCN dscn)
         {
-            this.saveData = saveData;   
+            this.dssv = dssv;
+            this.dscn = dscn;
             InitializeComponent();
 
         }
@@ -31,47 +33,17 @@ namespace QuanLiSinhVien_DATH
         {
             dgv.DataSource = sv.ToList();
         }
-
-        private void docFile()
+        private void ThemMaCNcbb()
         {
-            try
+            foreach (var cn in dscn.DSchuyennganh)
             {
-                string json = File.ReadAllText("data.json");
-                Data data = JsonSerializer.Deserialize<Data>(json);
-                this.dssv = data.DanhSachSinhVien;
-                
+                cbb_macn.Items.Add(cn.MaCN);
             }
-            catch (Exception ex)
-            {
-                dssv = new DSSV();
-            }
+            cbb_macn.SelectedIndex = 0;
         }
-        
-        private void ghiFile()
-        {
-            try
-            {
-                saveData.DanhSachSinhVien = this.dssv;
-                   
-                string jsonString = JsonSerializer.Serialize(saveData);
-                string filePath = "data.json";
-
-                if (File.Exists(filePath))
-                {
-                    File.Delete(filePath);
-                }
-
-                File.WriteAllText(filePath, jsonString);
-            }
-            catch (Exception ex)
-            {
-
-            }
-        }
-
         private void ApplicationForm_Load(object sender, EventArgs e)
         {
-            docFile();
+            ThemMaCNcbb();
             hienthi(dgvdmsv, dssv.DSsinhvien);
         }
 
@@ -82,7 +54,7 @@ namespace QuanLiSinhVien_DATH
             sv.MaSV = txtmasv.Text;
             sv.HoTen = txthoten.Text;
             sv.Email = txtemail.Text;
-            sv.NgaySinh = dtpngaysinh.Value;
+            sv.NgaySinh = dtpngaysinh.Value.Date;
 
             if (radnam.Checked == true)
             {
@@ -96,7 +68,9 @@ namespace QuanLiSinhVien_DATH
             sv.SoDT = txtsodt.Text;
             sv.DanToc = txtdt.Text;
             sv.QuocTich = txtqt.Text;
-   ;
+            sv.MaCN = cbb_macn.Text;
+            sv.TenCN = txt_TenCN.Text;
+            
 
             if (dssv.kiemTraTrungMa(txtmasv.Text))
             {
@@ -108,7 +82,6 @@ namespace QuanLiSinhVien_DATH
                 dssv.them(sv);
                 hienthi(dgvdmsv, dssv.DSsinhvien);
             }
-            ghiFile();
         }
 
         private void btnxoa_Click(object sender, EventArgs e)
@@ -129,12 +102,10 @@ namespace QuanLiSinhVien_DATH
         }
 
 
-
-        private void ApplicationForm_FormClosed(object sender, FormClosedEventArgs e)
+        public DSSV File1()
         {
-            ghiFile();
+            return dssv ;
         }
-
         private void btnsua_Click(object sender, EventArgs e)
         {
             foreach (SinhVien sv in dssv.DSsinhvien)
@@ -144,13 +115,22 @@ namespace QuanLiSinhVien_DATH
                     sv.MaSV = txtmasv.Text;
                     sv.HoTen = txthoten.Text;
                     sv.Email = txtemail.Text;
-                    sv.NgaySinh = dtpngaysinh.Value;
+                    sv.NgaySinh = dtpngaysinh.Value.Date;
+                    if (radnam.Checked == true)
+                    {
+                        sv.GioiTinh = "Nam";
+                    }
+                    else
+                    {
+                        sv.GioiTinh = "Nữ";
+                    }
                     sv.GioiTinh = radnam.Text;
                     sv.DiaChi = txtdiachi.Text;
                     sv.SoDT = txtsodt.Text;
                     sv.DanToc = txtdt.Text;
                     sv.QuocTich = txtqt.Text;
-               
+                    sv.MaCN = cbb_macn.Text;
+                    sv.TenCN = txt_TenCN.Text;
                     hienthi(dgvdmsv, dssv.DSsinhvien);
                     MessageBox.Show("Thông Tin Đã Được Cập Nhật");
                     return;
@@ -180,11 +160,26 @@ namespace QuanLiSinhVien_DATH
             txtdt.Text = dgvdmsv.Rows[e.RowIndex].Cells["dantoc"].Value.ToString();
             txtqt.Text = dgvdmsv.Rows[e.RowIndex].Cells["quoctich"].Value.ToString();
             txtsodt.Text = dgvdmsv.Rows[e.RowIndex].Cells["sodt"].Value.ToString();
-          
         }
 
-       
-        
+        private void btn_TIm_Click(object sender, EventArgs e)
+        {
+            TimKiemForm tkf = new TimKiemForm(dssv);
+            tkf.ShowDialog();
+        }
+
+
+        private void cbb_macn_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            foreach (var cn in dscn.DSchuyennganh)
+            {
+                if (cbb_macn.Text == cn.MaCN)
+                {
+                    txt_TenCN.Text = cn.TenCN;
+                }
+            }
+        }
     }
 
 }
