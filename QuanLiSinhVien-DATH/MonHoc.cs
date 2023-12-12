@@ -13,6 +13,7 @@ namespace QuanLiSinhVien_DATH
         private string _sotc;
         private string _tietlt;
         private string _tietth;
+        private int _soluong;
 
         public string MaMH
         {
@@ -37,6 +38,11 @@ namespace QuanLiSinhVien_DATH
             get { return this._tietth;}
             set { this._tietth = value;}
         }
+        public int Soluong
+        {
+            get { return this._soluong; }
+            set { this._soluong = value; }
+        }
         public MonHoc()
         {
             this._mamh = "";
@@ -44,14 +50,16 @@ namespace QuanLiSinhVien_DATH
             this._sotc = "";
             this._tietlt = "";
             this._tietth = "";
+            this._soluong = 0;
         }
-        public MonHoc(string mamh, string tenmh, string sotc, string tietlt, string tietth)
+        public MonHoc(string mamh, string tenmh, string sotc, string tietlt, string tietth, int soluong)
         {
             this._mamh = mamh;
             this._tenmh = tenmh;
             this._sotc = sotc;
             this._tietlt = tietlt;
             this._tietth = tietth;
+            this._soluong = soluong;
         }
     }
 

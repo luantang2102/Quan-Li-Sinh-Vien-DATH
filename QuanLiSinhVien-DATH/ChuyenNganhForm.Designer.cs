@@ -42,7 +42,8 @@
             this.txtTim = new System.Windows.Forms.TextBox();
             this.btnTim = new System.Windows.Forms.Button();
             this.macn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenchuyennganh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tencn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdscn)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +55,8 @@
             this.dgvdscn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvdscn.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.macn,
-            this.tenchuyennganh});
+            this.tencn,
+            this.soluong});
             this.dgvdscn.Location = new System.Drawing.Point(300, 0);
             this.dgvdscn.Name = "dgvdscn";
             this.dgvdscn.RowHeadersWidth = 51;
@@ -179,12 +181,18 @@
             this.macn.HeaderText = "Mã Chuyên Ngành";
             this.macn.Name = "macn";
             // 
-            // tenchuyennganh
+            // tencn
             // 
-            this.tenchuyennganh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tenchuyennganh.DataPropertyName = "TenCN";
-            this.tenchuyennganh.HeaderText = "Tên Chuyên Ngành";
-            this.tenchuyennganh.Name = "tenchuyennganh";
+            this.tencn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tencn.DataPropertyName = "TenCN";
+            this.tencn.HeaderText = "Tên Chuyên Ngành";
+            this.tencn.Name = "tencn";
+            // 
+            // soluong
+            // 
+            this.soluong.DataPropertyName = "Soluong";
+            this.soluong.HeaderText = "Số Lượng";
+            this.soluong.Name = "soluong";
             // 
             // ChuyenNganhForm
             // 
@@ -230,6 +238,7 @@
         private System.Windows.Forms.TextBox txtTim;
         private System.Windows.Forms.Button btnTim;
         private System.Windows.Forms.DataGridViewTextBoxColumn macn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tenchuyennganh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tencn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn soluong;
     }
 }

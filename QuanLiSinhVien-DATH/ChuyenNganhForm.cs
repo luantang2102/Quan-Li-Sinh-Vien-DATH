@@ -12,25 +12,41 @@ namespace QuanLiSinhVien_DATH
 {
     public partial class ChuyenNganhForm : Form
     {
+        private DSSV dssv;
         private DSCN dscn;
         private int VT = 0;
-        public ChuyenNganhForm()
+        public ChuyenNganhForm(DSSV dssv, DSCN dscn)
         {
+            this.dssv = dssv;
+            this.dscn = dscn;
             InitializeComponent();
+        }
+        private void Tinhsoluong()
+        {
+            foreach (var cn in dscn.DSchuyennganh)
+                {
+                cn.Soluong = 0;
+                    foreach (var sv in dssv.DSsinhvien)
+                    {
+                        if (cn.MaCN == sv.MaCN)
+                        {
+                            cn.Soluong++;
+                        }
+                    }
+                }
         }
         private void hienthi(DataGridView dgv, List<ChuyenNganh> cn)
         {
+            Tinhsoluong();
             dgv.DataSource = cn.ToList();
         }
 
         private void dgvdscn_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            VT = e.RowIndex;
-            DataGridViewRow row = dgvdscn.Rows[VT];
-            txtmacn.Text = dgvdscn.Rows[e.RowIndex].Cells["macn"].Value.ToString();
-            txttenchuyennganh.Text = dgvdscn.Rows[e.RowIndex].Cells["tenchuyennganh"].Value.ToString();
-            
-
+            //VT = e.RowIndex;
+            //DataGridViewRow row = dgvdscn.Rows[VT];
+            //txtmacn.Text = dgvdscn.Rows[e.RowIndex].Cells["macn"].Value.ToString();
+            //txttenchuyennganh.Text = dgvdscn.Rows[e.RowIndex].Cells["tenchuyennganh"].Value.ToString();
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
@@ -38,9 +54,9 @@ namespace QuanLiSinhVien_DATH
             cn.MaCN = txtmacn.Text;
             cn.TenCN = txttenchuyennganh.Text;
 
-            if (dscn.kiemTraTrungMa(txtmacn.Text))
+            if (dscn.kiemTraTrungMa(txtmacn.Text, txttenchuyennganh.Text))
             {
-                MessageBox.Show("ma nay da co", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Ma Hoac Ten nay da co", "Thong bao", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtmacn.Focus();
             }
             else
@@ -85,10 +101,14 @@ namespace QuanLiSinhVien_DATH
 
         private void ChuyenNganhForm_Load(object sender, EventArgs e)
         {
-            dscn = new DSCN();
+
+                hienthi(dgvdscn, dscn.DSchuyennganh);
         }
 
-
+        public DSCN File1()
+        {
+            return dscn;
+        }
 
         private void btnTim_Click(object sender, EventArgs e)
         {

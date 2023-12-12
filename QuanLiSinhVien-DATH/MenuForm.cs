@@ -7,18 +7,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
+using System.Security.Claims;
+using System.IO;
+using System.Text.Json;
+using System.Runtime.CompilerServices;
 
 namespace QuanLiSinhVien_DATH
 {
     public partial class MenuForm : Form
     {
+        public DSSV dssv;
+        public DSCN dscn;
+        public DSMH dsmh;
+        UserSV userSV = new UserSV();
+
         private Data saveData;
+        private ApplicationForm applicationForm;
+        private ChuyenNganhForm chuyenNganhForm;
+        private MonHocForm monhocform;
         public MenuForm(Data saveData)
         {
             this.saveData = saveData;
             InitializeComponent();
+            
+
         }
-      
         public void AddForm(Form a)
         {
             this.panel1.Controls.Clear();
@@ -32,15 +46,14 @@ namespace QuanLiSinhVien_DATH
         }
         public void sinhVienToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ApplicationForm applicationForm = new ApplicationForm(saveData);
+            applicationForm = new ApplicationForm(dssv, dscn);
             AddForm(applicationForm);
-            //applicationForm.ShowDialog();
         }
 
         private void monHocToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MonHocForm a = new MonHocForm();
-            AddForm(a);
+            monhocform = new MonHocForm(dssv,dsmh);
+            AddForm(monhocform);
         }
 
         private void đangXuatToolStripMenuItem_Click(object sender, EventArgs e)
@@ -51,25 +64,129 @@ namespace QuanLiSinhVien_DATH
 
         private void chuyenNganhToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ChuyenNganhForm a = new ChuyenNganhForm();
-            AddForm(a);
+            chuyenNganhForm = new ChuyenNganhForm(dssv, dscn);
+            AddForm(chuyenNganhForm);
         }
 
         private void MenuForm_Load(object sender, EventArgs e)
         {
+            docFile();
             WelcomeForm a = new WelcomeForm();
             AddForm(a);
         }
 
         private void MenuForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            ghiFile();
             Application.Exit();
         }
 
-        private void tìmKiếmToolStripMenuItem_Click(object sender, EventArgs e)
+        private void quảnLýToolStripMenuItem_DropDownClosed(object sender, EventArgs e)
         {
-            TimKiemForm tk = new TimKiemForm();
-            AddForm(tk);
+            try
+            {
+                docds();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi xảy ra: {ex.Message}");
+            }
+        }
+        private void docds()
+        {
+            if (applicationForm != null)
+            {
+                var fileData = applicationForm.File1();
+                if (fileData != null)
+                    this.dssv = fileData;
+            }
+            
+            if (chuyenNganhForm != null)
+            {
+                var fileData = chuyenNganhForm.File1();
+                if (fileData != null)
+                    this.dscn= fileData;
+            }
+            if (monhocform != null)
+            {
+                var fileData = monhocform.File1();
+                if(fileData != null)
+                    this.dsmh = fileData;
+            }    
+        }
+        private void taotksv()
+        {
+            userSV = new UserSV();
+            foreach(var sv in this.dssv.DSsinhvien)
+            {
+
+                User tksv = new User();
+                tksv.Username = sv.MaSV;
+                tksv.Password = "123";
+                userSV.DSUserSV.Add(tksv);
+            }    
+        }
+        private void docFile()
+        {
+            try
+            {
+                
+                string json = File.ReadAllText("data.json");
+                Data data = JsonSerializer.Deserialize<Data>(json);
+                this.dssv = data.DanhSachSinhVien;
+                this.dscn = data.DanhSachChuyenNganh;
+                this.dsmh = data.DanhSachMonHoc;
+                this.userSV = data.TKUserSV;
+                if (userSV == null)
+                {
+                    userSV = new UserSV();
+                }
+                if (dssv == null)
+                {
+                    dssv = new DSSV();
+                }
+                if (dscn == null)
+                {
+                    dscn = new DSCN();
+                }
+                if (dsmh == null)
+                {
+                    dsmh = new DSMH();
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                
+            }
+        }
+        private void ghiFile()
+        {
+            try
+            {
+                UserSV userSV = new UserSV();
+                docds();
+                taotksv();
+                saveData.DanhSachSinhVien = this.dssv;
+                saveData.DanhSachChuyenNganh = this.dscn;
+                saveData.TKUserSV = this.userSV;
+                saveData.DanhSachMonHoc = this.dsmh;
+
+                string jsonString = JsonSerializer.Serialize(saveData);
+                string filePath = "data.json";
+
+                if (File.Exists(filePath))
+                {
+                    File.Delete(filePath);
+                }
+
+                File.WriteAllText(filePath, jsonString);
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }

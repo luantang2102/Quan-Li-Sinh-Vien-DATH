@@ -10,7 +10,8 @@ namespace QuanLiSinhVien_DATH
     {
         private string _macn;
         private string _tenchuyennganh;
-    
+        private int _soluong;
+
 
 
         //properties
@@ -24,17 +25,24 @@ namespace QuanLiSinhVien_DATH
             get { return this._tenchuyennganh; }
             set { this._tenchuyennganh = value; }
         }
+        public int Soluong
+        {
+            get { return this._soluong; }
+            set { this._soluong = value; }
+        }
      
         public ChuyenNganh()
         {
             this._macn = "";
             this._tenchuyennganh = "";
+            this._soluong = 0;
           ;
         }
-        public ChuyenNganh(string macn, string tenchuyennganh, string soluong)
+        public ChuyenNganh(string macn, string tenchuyennganh, int soluong)
         {
             this._macn = macn;
             this._tenchuyennganh = tenchuyennganh;
+            this._soluong = soluong;
            
         }
     }
