@@ -130,7 +130,7 @@ namespace QuanLiSinhVien_DATH
         {
             try
             {
-                
+               
                 string json = File.ReadAllText("data.json");
                 Data data = JsonSerializer.Deserialize<Data>(json);
                 this.dssv = data.DanhSachSinhVien;
@@ -154,11 +154,9 @@ namespace QuanLiSinhVien_DATH
                     dsmh = new DSMH();
                 }
 
-
             }
             catch (Exception ex)
-            {
-                
+            {     
             }
         }
         private void ghiFile()

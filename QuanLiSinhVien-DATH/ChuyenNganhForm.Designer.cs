@@ -98,9 +98,9 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(146, 199);
+            this.btnXoa.Location = new System.Drawing.Point(166, 203);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(75, 23);
+            this.btnXoa.Size = new System.Drawing.Size(97, 37);
             this.btnXoa.TabIndex = 3;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
@@ -108,9 +108,9 @@
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(31, 199);
+            this.btnThem.Location = new System.Drawing.Point(31, 203);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(75, 23);
+            this.btnThem.Size = new System.Drawing.Size(97, 37);
             this.btnThem.TabIndex = 3;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
@@ -118,9 +118,9 @@
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(31, 247);
+            this.btnSua.Location = new System.Drawing.Point(31, 251);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(75, 23);
+            this.btnSua.Size = new System.Drawing.Size(97, 37);
             this.btnSua.TabIndex = 3;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
@@ -128,14 +128,14 @@
             // 
             // cbTim
             // 
+            this.cbTim.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTim.FormattingEnabled = true;
             this.cbTim.Items.AddRange(new object[] {
-            "Mã Chuyên Ngành",
-            "Tên Chuyên Ngành",
-            ""});
+            "Mã CN",
+            "Tên CN"});
             this.cbTim.Location = new System.Drawing.Point(130, 88);
             this.cbTim.Name = "cbTim";
-            this.cbTim.Size = new System.Drawing.Size(121, 21);
+            this.cbTim.Size = new System.Drawing.Size(100, 21);
             this.cbTim.TabIndex = 4;
             // 
             // label4
@@ -167,19 +167,20 @@
             // 
             // btnTim
             // 
-            this.btnTim.Location = new System.Drawing.Point(146, 247);
+            this.btnTim.Location = new System.Drawing.Point(166, 251);
             this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(75, 23);
+            this.btnTim.Size = new System.Drawing.Size(97, 37);
             this.btnTim.TabIndex = 7;
             this.btnTim.Text = "Tìm";
             this.btnTim.UseVisualStyleBackColor = true;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click_1);
             // 
-            // macn
+            // MaChuyenNganh
             // 
-            this.macn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.macn.DataPropertyName = "MaCN";
-            this.macn.HeaderText = "Mã Chuyên Ngành";
-            this.macn.Name = "macn";
+            this.MaChuyenNganh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MaChuyenNganh.DataPropertyName = "MaCN";
+            this.MaChuyenNganh.HeaderText = "Mã Chuyên Ngành";
+            this.MaChuyenNganh.Name = "MaChuyenNganh";
             // 
             // tencn
             // 
@@ -200,6 +201,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(800, 361);
+            this.Controls.Add(this.hiends);
             this.Controls.Add(this.btnTim);
             this.Controls.Add(this.txtTim);
             this.Controls.Add(this.label5);
