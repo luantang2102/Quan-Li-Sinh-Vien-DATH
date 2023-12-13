@@ -41,10 +41,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtTim = new System.Windows.Forms.TextBox();
             this.btnTim = new System.Windows.Forms.Button();
-            this.MaChuyenNganh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenChuyenNganh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.macn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tencn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.soluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hiends = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdscn)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,8 +54,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvdscn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvdscn.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MaChuyenNganh,
-            this.TenChuyenNganh,
+            this.macn,
+            this.tencn,
             this.soluong});
             this.dgvdscn.Location = new System.Drawing.Point(300, 0);
             this.dgvdscn.Name = "dgvdscn";
@@ -183,28 +182,18 @@
             this.MaChuyenNganh.HeaderText = "Mã Chuyên Ngành";
             this.MaChuyenNganh.Name = "MaChuyenNganh";
             // 
-            // TenChuyenNganh
+            // tencn
             // 
-            this.TenChuyenNganh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenChuyenNganh.DataPropertyName = "TenCN";
-            this.TenChuyenNganh.HeaderText = "Tên Chuyên Ngành";
-            this.TenChuyenNganh.Name = "TenChuyenNganh";
+            this.tencn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tencn.DataPropertyName = "TenCN";
+            this.tencn.HeaderText = "Tên Chuyên Ngành";
+            this.tencn.Name = "tencn";
             // 
             // soluong
             // 
             this.soluong.DataPropertyName = "Soluong";
             this.soluong.HeaderText = "Số Lượng";
             this.soluong.Name = "soluong";
-            // 
-            // hiends
-            // 
-            this.hiends.Location = new System.Drawing.Point(31, 149);
-            this.hiends.Name = "hiends";
-            this.hiends.Size = new System.Drawing.Size(97, 48);
-            this.hiends.TabIndex = 8;
-            this.hiends.Text = "Hiện Toàn Bộ Danh Sách";
-            this.hiends.UseVisualStyleBackColor = true;
-            this.hiends.Click += new System.EventHandler(this.hiends_Click);
             // 
             // ChuyenNganhForm
             // 
@@ -250,9 +239,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtTim;
         private System.Windows.Forms.Button btnTim;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaChuyenNganh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenChuyenNganh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn macn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tencn;
         private System.Windows.Forms.DataGridViewTextBoxColumn soluong;
-        private System.Windows.Forms.Button hiends;
     }
 }

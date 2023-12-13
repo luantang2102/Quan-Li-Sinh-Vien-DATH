@@ -26,7 +26,7 @@ namespace QuanLiSinhVien_DATH
             this.dssv = dssv;
             this.dscn = dscn;
             InitializeComponent();
-
+            
         }
 
         private void hienthi(DataGridView dgv, List<SinhVien> sv)
@@ -39,6 +39,7 @@ namespace QuanLiSinhVien_DATH
             {
                 cbb_macn.Items.Add(cn.MaCN);
             }
+            if(cbb_macn.Items.Count > 0)
             cbb_macn.SelectedIndex = 0;
         }
         private void ApplicationForm_Load(object sender, EventArgs e)

@@ -45,10 +45,10 @@ namespace QuanLiSinhVien_DATH
 
         private void dgvdscn_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            VT = e.RowIndex;
-            DataGridViewRow row = dgvdscn.Rows[VT];
-            txtmacn.Text = dgvdscn.Rows[e.RowIndex].Cells["MaChuyenNganh"].Value.ToString();
-            txttenchuyennganh.Text = dgvdscn.Rows[e.RowIndex].Cells["TenChuyenNganh"].Value.ToString();
+            //VT = e.RowIndex;
+            //DataGridViewRow row = dgvdscn.Rows[VT];
+            //txtmacn.Text = dgvdscn.Rows[e.RowIndex].Cells["macn"].Value.ToString();
+            //txttenchuyennganh.Text = dgvdscn.Rows[e.RowIndex].Cells["tenchuyennganh"].Value.ToString();r
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
@@ -103,11 +103,16 @@ namespace QuanLiSinhVien_DATH
 
         private void ChuyenNganhForm_Load(object sender, EventArgs e)
         {
-            cbTim.SelectedIndex = 0;
-            hienthi(dgvdscn, dscn.DSchuyennganh);
+
+                hienthi(dgvdscn, dscn.DSchuyennganh);
         }
 
         public DSCN File1()
+        {
+            return dscn;
+        }
+
+        private void btnTim_Click(object sender, EventArgs e)
         {
             return dscn;
         }

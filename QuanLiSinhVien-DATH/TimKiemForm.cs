@@ -34,12 +34,12 @@ namespace QuanLiSinhVien_DATH
                 string Tim = txtndTim.Text;
                 string CotTim = cBTim.Text;
                 CotTim = XoaDauvaKhoangTrang(CotTim);
-                foreach (var sinhvien in this.dssv.DSsinhvien)
+                foreach (var sinhvien in dssv.DSsinhvien)
                 {
                     var dlTim = sinhvien.GetType().GetProperty(CotTim)?.GetValue(sinhvien);
                     if (dlTim != null && dlTim.ToString() == Tim)
                     {
-                        dgvTim.DataSource = this.dssv.DSsinhvien.Where(s => sinhvien.GetType().GetProperty(CotTim).GetValue(s).ToString() == Tim).ToList();
+                        dgvTim.DataSource = dssv.DSsinhvien.Where(s => sinhvien.GetType().GetProperty(CotTim).GetValue(s).ToString() == Tim).ToList();
                     }
                 }
             }

@@ -19,6 +19,7 @@ namespace QuanLiSinhVien_DATH
         private string _quoctich;
         private string _macn;
         private string _tencn;
+        private List<MonHoc> monhocdk;
 
         //properties
         public string MaSV
@@ -76,8 +77,12 @@ namespace QuanLiSinhVien_DATH
             get { return this._tencn; }
             set { this._tencn = value; }
         }
-      
 
+        public List<MonHoc> MonHocDangKy
+        {
+            get { return this.monhocdk; }
+            set { this.monhocdk = value; }
+        }
 
         //các phương thức tạo lập 
         //pttl không tham số

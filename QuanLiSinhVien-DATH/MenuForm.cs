@@ -19,9 +19,13 @@ namespace QuanLiSinhVien_DATH
     {
         public DSSV dssv;
         public DSCN dscn;
+        public DSMH dsmh;
+        UserSV userSV = new UserSV();
+
         private Data saveData;
         private ApplicationForm applicationForm;
         private ChuyenNganhForm chuyenNganhForm;
+        private MonHocForm monhocform;
         public MenuForm(Data saveData)
         {
             this.saveData = saveData;
@@ -48,8 +52,8 @@ namespace QuanLiSinhVien_DATH
 
         private void monHocToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MonHocForm a = new MonHocForm();
-            AddForm(a);
+            monhocform = new MonHocForm(dssv,dsmh);
+            AddForm(monhocform);
         }
 
         private void đangXuatToolStripMenuItem_Click(object sender, EventArgs e)
@@ -96,35 +100,76 @@ namespace QuanLiSinhVien_DATH
                 if (fileData != null)
                     this.dssv = fileData;
             }
+            
             if (chuyenNganhForm != null)
             {
                 var fileData = chuyenNganhForm.File1();
                 if (fileData != null)
-                    this.dscn = fileData;
+                    this.dscn= fileData;
             }
+            if (monhocform != null)
+            {
+                var fileData = monhocform.File1();
+                if(fileData != null)
+                    this.dsmh = fileData;
+            }    
+        }
+        private void taotksv()
+        {
+            userSV = new UserSV();
+            foreach(var sv in this.dssv.DSsinhvien)
+            {
+
+                User tksv = new User();
+                tksv.Username = sv.MaSV;
+                tksv.Password = "123";
+                userSV.DSUserSV.Add(tksv);
+            }    
         }
         private void docFile()
         {
             try
             {
+               
                 string json = File.ReadAllText("data.json");
                 Data data = JsonSerializer.Deserialize<Data>(json);
                 this.dssv = data.DanhSachSinhVien;
                 this.dscn = data.DanhSachChuyenNganh;
+                this.dsmh = data.DanhSachMonHoc;
+                this.userSV = data.TKUserSV;
+                if (userSV == null)
+                {
+                    userSV = new UserSV();
+                }
+                if (dssv == null)
+                {
+                    dssv = new DSSV();
+                }
+                if (dscn == null)
+                {
+                    dscn = new DSCN();
+                }
+                if (dsmh == null)
+                {
+                    dsmh = new DSMH();
+                }
 
             }
             catch (Exception ex)
-            {
-                dssv = new DSSV();
+            {     
             }
         }
         private void ghiFile()
         {
             try
             {
+                UserSV userSV = new UserSV();
                 docds();
+                taotksv();
                 saveData.DanhSachSinhVien = this.dssv;
                 saveData.DanhSachChuyenNganh = this.dscn;
+                saveData.TKUserSV = this.userSV;
+                saveData.DanhSachMonHoc = this.dsmh;
 
                 string jsonString = JsonSerializer.Serialize(saveData);
                 string filePath = "data.json";
