@@ -88,10 +88,28 @@
       <DependentUpon>ChuyenNganhForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Data.cs" />
+    <Compile Include="DKMHForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DKMHForm.Designer.cs">
+      <DependentUpon>DKMHForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DSCN.cs" />
     <Compile Include="DSGV.cs" />
     <Compile Include="DSMH.cs" />
     <Compile Include="DSSV.cs" />
+    <Compile Include="RoleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoleForm.Designer.cs">
+      <DependentUpon>RoleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserSVForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserSVForm.Designer.cs">
+      <DependentUpon>UserSVForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +139,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserSV.cs" />
     <Compile Include="WelcomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +151,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChuyenNganhForm.resx">
       <DependentUpon>ChuyenNganhForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DKMHForm.resx">
+      <DependentUpon>DKMHForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoleForm.resx">
+      <DependentUpon>RoleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserSVForm.resx">
+      <DependentUpon>UserSVForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>

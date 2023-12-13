@@ -16,13 +16,15 @@ namespace QuanLiSinhVien_DATH
 {
     public partial class MonHocForm : Form
     {
-        //private List<MonHoc> dsMH;
+        private DSSV dssv;
         private DSMH dsmh;
         private int ViTriHienTai = 0;
 
-        public MonHocForm()
+        public MonHocForm(DSSV dssv, DSMH dsmh)
         {
             InitializeComponent();
+            this.dssv = dssv;
+            this.dsmh = dsmh;
         }
         private void hienthi(DataGridView dgv, List<MonHoc> mh)
         {
@@ -40,7 +42,7 @@ namespace QuanLiSinhVien_DATH
 
         private void MonHocForm_Load(object sender, EventArgs e)
         {
-            dsmh=new DSMH();
+            hienthi(dgvMH, dsmh.DSMonHoc);
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -109,7 +111,10 @@ namespace QuanLiSinhVien_DATH
             }
             MessageBox.Show("Không Tìm Thấy MSSV");
         }
+        public DSMH File1()
+        {
+            return dsmh;
+        }
 
-  
     }
 }
