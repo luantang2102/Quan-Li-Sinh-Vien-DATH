@@ -23,9 +23,9 @@ namespace QuanLiSinhVien_DATH
         UserSV userSV = new UserSV();
 
         private Data saveData;
-        private ApplicationForm applicationForm;
-        private ChuyenNganhForm chuyenNganhForm;
-        private MonHocForm monhocform;
+        private QuanLiSinhVienForm applicationForm;
+        private QuanLiChuyenNganhForm chuyenNganhForm;
+        private QuanLiMonHocForm monhocform;
         public MenuForm(Data saveData)
         {
             this.saveData = saveData;
@@ -46,13 +46,13 @@ namespace QuanLiSinhVien_DATH
         }
         public void sinhVienToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            applicationForm = new ApplicationForm(dssv, dscn);
+            applicationForm = new QuanLiSinhVienForm(dssv, dscn);
             AddForm(applicationForm);
         }
 
         private void monHocToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            monhocform = new MonHocForm(dssv,dsmh);
+            monhocform = new QuanLiMonHocForm(dssv,dsmh);
             AddForm(monhocform);
         }
 
@@ -64,14 +64,14 @@ namespace QuanLiSinhVien_DATH
 
         private void chuyenNganhToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            chuyenNganhForm = new ChuyenNganhForm(dssv, dscn);
+            chuyenNganhForm = new QuanLiChuyenNganhForm(dssv, dscn);
             AddForm(chuyenNganhForm);
         }
 
         private void MenuForm_Load(object sender, EventArgs e)
         {
             docFile();
-            WelcomeForm a = new WelcomeForm();
+            TrangChuForm a = new TrangChuForm();
             AddForm(a);
         }
 
@@ -129,8 +129,7 @@ namespace QuanLiSinhVien_DATH
         private void docFile()
         {
             try
-            {
-               
+            {  
                 string json = File.ReadAllText("data.json");
                 Data data = JsonSerializer.Deserialize<Data>(json);
                 this.dssv = data.DanhSachSinhVien;
@@ -154,9 +153,14 @@ namespace QuanLiSinhVien_DATH
                     dsmh = new DSMH();
                 }
 
+
             }
             catch (Exception ex)
-            {     
+            {
+                userSV = new UserSV();
+                dssv = new DSSV();
+                dscn = new DSCN();
+                dsmh = new DSMH();
             }
         }
         private void ghiFile()

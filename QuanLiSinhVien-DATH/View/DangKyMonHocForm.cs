@@ -16,14 +16,14 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace QuanLiSinhVien_DATH
 {
-    public partial class DKMHForm : Form
+    public partial class DangKyMonHocForm : Form
     {
         private DSMH dsmh;
         private DSMH dsmhtmp;
         private DSSV dssv;
         private Data saveData;
         string mssv;
-        public DKMHForm(string mssv, DSSV dssv, DSMH dsmh, Data saveData)
+        public DangKyMonHocForm(string mssv, DSSV dssv, DSMH dsmh, Data saveData)
         {
             this.mssv = mssv;
             this.dssv = dssv;

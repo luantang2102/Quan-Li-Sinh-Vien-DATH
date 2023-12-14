@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QuanLiSinhVien_DATH
 {
-    public partial class RoleForm : Form
+    public partial class VaiTroForm : Form
     {
-        public RoleForm()
+        public VaiTroForm()
         {
             InitializeComponent();
         }
@@ -20,7 +20,7 @@ namespace QuanLiSinhVien_DATH
         private void btn_GV_Click(object sender, EventArgs e)
         {
             this.Hide();
-            UserForm user = new UserForm();
+            DangNhapGVForm user = new DangNhapGVForm();
             user.ShowDialog();
             this.Close();
         }
@@ -28,7 +28,7 @@ namespace QuanLiSinhVien_DATH
         private void btn_SV_Click(object sender, EventArgs e)
         {
             this.Hide();
-            UserSVForm user = new UserSVForm();
+            DangNhapSVForm user = new DangNhapSVForm();
             user.ShowDialog();
             this.Close();
         }

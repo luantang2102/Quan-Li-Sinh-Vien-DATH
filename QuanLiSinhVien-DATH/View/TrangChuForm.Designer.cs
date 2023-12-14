@@ -1,6 +1,6 @@
 ﻿namespace QuanLiSinhVien_DATH
 {
-    partial class WelcomeForm
+    partial class TrangChuForm
     {
         /// <summary>
         /// Required designer variable.

@@ -12,14 +12,14 @@ using System.Windows.Forms;
 
 namespace QuanLiSinhVien_DATH
 {
-    public partial class UserSVForm : Form
+    public partial class DangNhapSVForm : Form
     {
         UserSV userSV;
         DSSV dssv;
         DSMH dsmh;
         Data DKMHuser = new Data();
         private Data saveData = new Data();
-        public UserSVForm()
+        public DangNhapSVForm()
         {
             docFile();
             InitializeComponent();
@@ -38,7 +38,7 @@ namespace QuanLiSinhVien_DATH
                 {
                     MessageBox.Show("Đăng nhập thành công");
                     this.Hide();
-                    DKMHForm dkmh = new DKMHForm(usernameTB.Text, dssv , dsmh, saveData);
+                    DangKyMonHocForm dkmh = new DangKyMonHocForm(usernameTB.Text, dssv , dsmh, saveData);
                     dkmh.ShowDialog();
                     this.Close();
                     return;

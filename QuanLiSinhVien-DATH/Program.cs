@@ -16,7 +16,7 @@ namespace QuanLiSinhVien_DATH
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RoleForm());
+            Application.Run(new VaiTroForm());
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace QuanLiSinhVien_DATH
 {
-    partial class MonHocForm
+    partial class QuanLiMonHocForm
     {
         /// <summary>
         /// Required designer variable.

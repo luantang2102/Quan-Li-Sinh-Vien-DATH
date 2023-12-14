@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace QuanLiSinhVien_DATH
 {
-    public partial class UserForm : Form
+    public partial class DangNhapGVForm : Form
     {
-        DSGV dsGV;
+        UserGV dsGV;
         Data saveData = new Data();
 
         private void docFile()
@@ -24,16 +24,16 @@ namespace QuanLiSinhVien_DATH
                 string json = File.ReadAllText("data.json");
                 Data data = JsonSerializer.Deserialize<Data>(json);
                 this.dsGV = data.DanhSachGiaoVien; 
-                if(dsGV == null) dsGV = new DSGV();
+                if(dsGV == null) dsGV = new UserGV();
 
             }
             catch (Exception ex)
             {
-                dsGV = new DSGV();
+                dsGV = new UserGV();
             }
         }
 
-        public UserForm()
+        public DangNhapGVForm()
         {
             InitializeComponent();
         }
