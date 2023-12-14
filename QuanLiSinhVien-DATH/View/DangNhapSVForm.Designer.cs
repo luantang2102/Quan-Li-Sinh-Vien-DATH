@@ -1,6 +1,6 @@
 ﻿namespace QuanLiSinhVien_DATH
 {
-    partial class UserSVForm
+    partial class DangNhapSVForm
     {
         /// <summary>
         /// Required designer variable.

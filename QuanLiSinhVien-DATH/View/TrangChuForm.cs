@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QuanLiSinhVien_DATH
 {
-    public partial class WelcomeForm : Form
+    public partial class TrangChuForm : Form
     {
-        public WelcomeForm()
+        public TrangChuForm()
         {
             InitializeComponent();
         }

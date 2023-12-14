@@ -1,6 +1,6 @@
 ﻿namespace QuanLiSinhVien_DATH
 {
-    partial class UserForm
+    partial class DangNhapGVForm
     {
         /// <summary>
         /// Required designer variable.
@@ -55,7 +55,6 @@
             // signInPanel
             // 
             this.signInPanel.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.signInPanel.Controls.Add(this.signUpPanel);
             this.signInPanel.Controls.Add(this.label4);
             this.signInPanel.Controls.Add(this.label9);
             this.signInPanel.Controls.Add(this.label8);
@@ -83,7 +82,7 @@
             this.signUpPanel.Controls.Add(this.password1RTB);
             this.signUpPanel.Controls.Add(this.usernameRTB);
             this.signUpPanel.Controls.Add(this.signUpBtn);
-            this.signUpPanel.Location = new System.Drawing.Point(0, 2);
+            this.signUpPanel.Location = new System.Drawing.Point(104, 2);
             this.signUpPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.signUpPanel.Name = "signUpPanel";
             this.signUpPanel.Size = new System.Drawing.Size(492, 450);
@@ -261,15 +260,16 @@
             this.loginBtn.UseVisualStyleBackColor = false;
             this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
-            // UserForm
+            // DangNhapGVForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(608, 448);
+            this.Controls.Add(this.signUpPanel);
             this.Controls.Add(this.signInPanel);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "UserForm";
+            this.Name = "DangNhapGVForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.UserForm_Load);
             this.signInPanel.ResumeLayout(false);

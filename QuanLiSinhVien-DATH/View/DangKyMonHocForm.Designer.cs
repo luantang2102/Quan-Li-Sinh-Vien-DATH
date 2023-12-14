@@ -1,6 +1,6 @@
 ﻿namespace QuanLiSinhVien_DATH
 {
-    partial class DKMHForm
+    partial class DangKyMonHocForm
     {
         /// <summary>
         /// Required designer variable.

@@ -15,13 +15,13 @@ using System.Runtime.CompilerServices;
 
 namespace QuanLiSinhVien_DATH
 {
-    public partial class ApplicationForm : Form
+    public partial class QuanLiSinhVienForm : Form
     {
         private DSSV dssv;
         private DSCN dscn;
         private int viTriHienTai = 0;
 
-        public ApplicationForm(DSSV dssv,DSCN dscn)
+        public QuanLiSinhVienForm(DSSV dssv,DSCN dscn)
         {
             this.dssv = dssv;
             this.dscn = dscn;

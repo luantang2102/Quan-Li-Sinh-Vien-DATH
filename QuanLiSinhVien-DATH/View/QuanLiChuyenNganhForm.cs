@@ -4,20 +4,18 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Security.Claims;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLiSinhVien_DATH
 {
-    public partial class ChuyenNganhForm : Form
+    public partial class QuanLiChuyenNganhForm : Form
     {
         private DSSV dssv;
         private DSCN dscn;
         private int VT = 0;
-        public ChuyenNganhForm(DSSV dssv, DSCN dscn)
+        public QuanLiChuyenNganhForm(DSSV dssv, DSCN dscn)
         {
             this.dssv = dssv;
             this.dscn = dscn;
@@ -48,7 +46,7 @@ namespace QuanLiSinhVien_DATH
             //VT = e.RowIndex;
             //DataGridViewRow row = dgvdscn.Rows[VT];
             //txtmacn.Text = dgvdscn.Rows[e.RowIndex].Cells["macn"].Value.ToString();
-            //txttenchuyennganh.Text = dgvdscn.Rows[e.RowIndex].Cells["tenchuyennganh"].Value.ToString();r
+            //txttenchuyennganh.Text = dgvdscn.Rows[e.RowIndex].Cells["tenchuyennganh"].Value.ToString();
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
@@ -114,55 +112,35 @@ namespace QuanLiSinhVien_DATH
 
         private void btnTim_Click(object sender, EventArgs e)
         {
-            return dscn;
-        }
+            string ndTim = txtTim.Text;
 
-    
-        private void btnTim_Click_1(object sender, EventArgs e)
-        {
-            dgvdscn.DataSource = null;
+            dgvdscn.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             try
             {
-                string Tim = txtTim.Text;
-                string CotTim = cbTim.Text;
-                CotTim = XoaDauvaKhoangTrang(CotTim);
-                foreach (var cn in dscn.DSchuyennganh)
+                dgvdscn.ClearSelection();
+                bool Kiemtra = false;
+                int Cot = cbTim.SelectedIndex;
+                if (Cot >= 0 && Cot < dgvdscn.Columns.Count)
                 {
-                    var dlTim = cn.GetType().GetProperty(CotTim)?.GetValue(cn);
-                    if (dlTim != null && dlTim.ToString() == Tim)
+                    for (int i = 0; i < dgvdscn.Rows.Count; i++)
                     {
-                        dgvdscn.DataSource = dscn.DSchuyennganh.Where(s => cn.GetType().GetProperty(CotTim).GetValue(s).ToString() == Tim).ToList();
+                        DataGridViewCell cell = dgvdscn.Rows[i].Cells[Cot];
+                        if (cell.Value != null && cell.Value.ToString().Equals(ndTim))
+                        {
+                            dgvdscn.Rows[i].Selected = true;
+                            Kiemtra = true;
+                        }
                     }
                 }
-                dgvdscn.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                if (!Kiemtra)
+                {
+                    MessageBox.Show("Không thể tìm thấy nội dung" + txtTim.Text, "Thông báo");
+                    return;
+                }
             }
-            catch (Exception ex)
+            catch (Exception exc)
             {
-                MessageBox.Show("Không tìm thấy sinh viên có mã số này.", "Thông báo");
-            }
-        }
-        static string XoaDauvaKhoangTrang(string Text)
-        {
-            // Loại bỏ dấu
-            string bodau = Text.Normalize(NormalizationForm.FormKD);
-            Regex regex = new Regex("[^a-zA-Z0-9]");
-            string withoutAccents = regex.Replace(bodau, "");
-
-            // Loại bỏ khoảng trắng
-            string xoaKT = withoutAccents.Replace(" ", "");
-
-            return xoaKT;
-        }
-
-        private void hiends_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                dgvdscn.DataSource = dscn.DSchuyennganh;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Lỗi: {ex.Message}", "Thông báo");
+                MessageBox.Show(exc.Message);
             }
         }
     }

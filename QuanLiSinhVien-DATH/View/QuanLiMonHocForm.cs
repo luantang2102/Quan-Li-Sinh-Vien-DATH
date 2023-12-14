@@ -14,13 +14,13 @@ using System.Text.Json;
 
 namespace QuanLiSinhVien_DATH
 {
-    public partial class MonHocForm : Form
+    public partial class QuanLiMonHocForm : Form
     {
         private DSSV dssv;
         private DSMH dsmh;
         private int ViTriHienTai = 0;
 
-        public MonHocForm(DSSV dssv, DSMH dsmh)
+        public QuanLiMonHocForm(DSSV dssv, DSMH dsmh)
         {
             InitializeComponent();
             this.dssv = dssv;

@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace QuanLiSinhVien_DATH
 {
-    public class DSGV
+    public class UserGV
     {
         private List<User> _dsGiaoVien;
-        public DSGV()
+        public UserGV()
         {
             _dsGiaoVien = new List<User>();
         }
-        public DSGV(List<User> ds)
+        public UserGV(List<User> ds)
         {
             _dsGiaoVien = ds;
         }

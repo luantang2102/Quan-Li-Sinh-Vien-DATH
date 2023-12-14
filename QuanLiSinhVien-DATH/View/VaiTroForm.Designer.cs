@@ -1,6 +1,6 @@
 ﻿namespace QuanLiSinhVien_DATH
 {
-    partial class RoleForm
+    partial class VaiTroForm
     {
         /// <summary>
         /// Required designer variable.
