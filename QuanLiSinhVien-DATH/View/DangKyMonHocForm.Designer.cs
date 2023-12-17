@@ -39,39 +39,41 @@
             // 
             // txtmssv
             // 
+            this.txtmssv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtmssv.Location = new System.Drawing.Point(50, 5);
-            this.txtmssv.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtmssv.Margin = new System.Windows.Forms.Padding(2);
             this.txtmssv.Name = "txtmssv";
             this.txtmssv.ReadOnly = true;
-            this.txtmssv.Size = new System.Drawing.Size(56, 20);
+            this.txtmssv.Size = new System.Drawing.Size(95, 13);
             this.txtmssv.TabIndex = 0;
             // 
             // lb_mh
             // 
             this.lb_mh.CheckOnClick = true;
+            this.lb_mh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lb_mh.FormattingEnabled = true;
-            this.lb_mh.Location = new System.Drawing.Point(285, 41);
-            this.lb_mh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lb_mh.Location = new System.Drawing.Point(182, 41);
+            this.lb_mh.Margin = new System.Windows.Forms.Padding(2);
             this.lb_mh.Name = "lb_mh";
-            this.lb_mh.Size = new System.Drawing.Size(236, 109);
+            this.lb_mh.Size = new System.Drawing.Size(531, 130);
             this.lb_mh.TabIndex = 1;
             this.lb_mh.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.lb_mh_ItemCheck);
             // 
             // dgvdkmh
             // 
             this.dgvdkmh.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvdkmh.Location = new System.Drawing.Point(285, 198);
-            this.dgvdkmh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvdkmh.Location = new System.Drawing.Point(182, 198);
+            this.dgvdkmh.Margin = new System.Windows.Forms.Padding(2);
             this.dgvdkmh.Name = "dgvdkmh";
             this.dgvdkmh.RowHeadersWidth = 51;
             this.dgvdkmh.RowTemplate.Height = 24;
-            this.dgvdkmh.Size = new System.Drawing.Size(430, 214);
+            this.dgvdkmh.Size = new System.Drawing.Size(533, 214);
             this.dgvdkmh.TabIndex = 2;
             // 
             // btn_Luu
             // 
-            this.btn_Luu.Location = new System.Drawing.Point(76, 280);
-            this.btn_Luu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Luu.Location = new System.Drawing.Point(50, 282);
+            this.btn_Luu.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Luu.Name = "btn_Luu";
             this.btn_Luu.Size = new System.Drawing.Size(69, 53);
             this.btn_Luu.TabIndex = 3;
@@ -92,8 +94,8 @@
             // 
             // btn_hien
             // 
-            this.btn_hien.Location = new System.Drawing.Point(76, 198);
-            this.btn_hien.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_hien.Location = new System.Drawing.Point(50, 200);
+            this.btn_hien.Margin = new System.Windows.Forms.Padding(2);
             this.btn_hien.Name = "btn_hien";
             this.btn_hien.Size = new System.Drawing.Size(69, 53);
             this.btn_hien.TabIndex = 5;
@@ -101,7 +103,7 @@
             this.btn_hien.UseVisualStyleBackColor = true;
             this.btn_hien.Click += new System.EventHandler(this.btn_hien_Click);
             // 
-            // DKMHForm
+            // DangKyMonHocForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -112,8 +114,8 @@
             this.Controls.Add(this.dgvdkmh);
             this.Controls.Add(this.lb_mh);
             this.Controls.Add(this.txtmssv);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "DKMHForm";
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "DangKyMonHocForm";
             this.Text = "DKMH";
             this.Load += new System.EventHandler(this.DKMH_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvdkmh)).EndInit();

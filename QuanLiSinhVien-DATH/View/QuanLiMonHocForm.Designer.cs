@@ -63,7 +63,7 @@
             // txtMaMH
             // 
             this.txtMaMH.Location = new System.Drawing.Point(29, 42);
-            this.txtMaMH.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMaMH.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtMaMH.Name = "txtMaMH";
             this.txtMaMH.Size = new System.Drawing.Size(185, 20);
             this.txtMaMH.TabIndex = 1;
@@ -71,7 +71,7 @@
             // txtTenMH
             // 
             this.txtTenMH.Location = new System.Drawing.Point(29, 84);
-            this.txtTenMH.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTenMH.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTenMH.Name = "txtTenMH";
             this.txtTenMH.Size = new System.Drawing.Size(185, 20);
             this.txtTenMH.TabIndex = 3;
@@ -89,7 +89,7 @@
             // txtSoTC
             // 
             this.txtSoTC.Location = new System.Drawing.Point(29, 129);
-            this.txtSoTC.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSoTC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSoTC.Name = "txtSoTC";
             this.txtSoTC.Size = new System.Drawing.Size(185, 20);
             this.txtSoTC.TabIndex = 5;
@@ -107,7 +107,7 @@
             // txtTietLT
             // 
             this.txtTietLT.Location = new System.Drawing.Point(29, 174);
-            this.txtTietLT.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTietLT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTietLT.Name = "txtTietLT";
             this.txtTietLT.Size = new System.Drawing.Size(185, 20);
             this.txtTietLT.TabIndex = 7;
@@ -125,7 +125,7 @@
             // txtTietTH
             // 
             this.txtTietTH.Location = new System.Drawing.Point(29, 220);
-            this.txtTietTH.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTietTH.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTietTH.Name = "txtTietTH";
             this.txtTietTH.Size = new System.Drawing.Size(185, 20);
             this.txtTietTH.TabIndex = 9;
@@ -143,7 +143,7 @@
             // btnThem
             // 
             this.btnThem.Location = new System.Drawing.Point(29, 256);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(2);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(67, 30);
             this.btnThem.TabIndex = 10;
@@ -154,7 +154,7 @@
             // btnXoa
             // 
             this.btnXoa.Location = new System.Drawing.Point(123, 256);
-            this.btnXoa.Margin = new System.Windows.Forms.Padding(2);
+            this.btnXoa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(67, 30);
             this.btnXoa.TabIndex = 11;
@@ -165,7 +165,7 @@
             // btnSua
             // 
             this.btnSua.Location = new System.Drawing.Point(77, 304);
-            this.btnSua.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSua.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(67, 30);
             this.btnSua.TabIndex = 12;
@@ -186,12 +186,13 @@
             this.tietLT,
             this.tietTH});
             this.dgvMH.Location = new System.Drawing.Point(253, 2);
-            this.dgvMH.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvMH.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvMH.Name = "dgvMH";
             this.dgvMH.RowHeadersWidth = 62;
             this.dgvMH.RowTemplate.Height = 28;
-            this.dgvMH.Size = new System.Drawing.Size(557, 389);
+            this.dgvMH.Size = new System.Drawing.Size(557, 451);
             this.dgvMH.TabIndex = 14;
+            this.dgvMH.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMH_CellDoubleClick);
             this.dgvMH.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMH_RowEnter);
             // 
             // mamh
@@ -234,12 +235,12 @@
             this.tietTH.MinimumWidth = 8;
             this.tietTH.Name = "tietTH";
             // 
-            // MonHocForm
+            // QuanLiMonHocForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(808, 391);
+            this.ClientSize = new System.Drawing.Size(808, 453);
             this.Controls.Add(this.dgvMH);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnXoa);
@@ -254,8 +255,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtMaMH);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "MonHocForm";
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Name = "QuanLiMonHocForm";
             this.Text = "MonHocForm";
             this.Load += new System.EventHandler(this.MonHocForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMH)).EndInit();

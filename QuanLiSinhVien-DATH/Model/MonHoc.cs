@@ -13,7 +13,7 @@ namespace QuanLiSinhVien_DATH
         private string _sotc;
         private string _tietlt;
         private string _tietth;
-        private string _hocky;
+        private int _soluong;
 
         public string MaMH
         {
@@ -26,22 +26,24 @@ namespace QuanLiSinhVien_DATH
             set { this._tenmh = value; }
         }
         public string TinChi
-        {   get { return this._sotc;}
+        {
+            get { return this._sotc; }
             set { this._sotc = value; }
         }
         public string TietLT
-        {   get { return this._tietlt;}
+        {
+            get { return this._tietlt; }
             set { this._tietlt = value; }
         }
         public string TietTH
         {
-            get { return this._tietth;}
-            set { this._tietth = value;}
+            get { return this._tietth; }
+            set { this._tietth = value; }
         }
-        public string Hocky
+        public int Soluong
         {
-            get { return this._hocky; }
-            set { this._hocky = value; }
+            get { return this._soluong; }
+            set { this._soluong = value; }
         }
         public MonHoc()
         {
@@ -50,16 +52,16 @@ namespace QuanLiSinhVien_DATH
             this._sotc = "";
             this._tietlt = "";
             this._tietth = "";
-            this._hocky = "";
+            this._soluong = 0;
         }
-        public MonHoc(string mamh, string tenmh, string sotc, string tietlt, string tietth, string hocky)
+        public MonHoc(string mamh, string tenmh, string sotc, string tietlt, string tietth, int soluong)
         {
             this._mamh = mamh;
             this._tenmh = tenmh;
             this._sotc = sotc;
             this._tietlt = tietlt;
             this._tietth = tietth;
-            this._hocky = hocky;
+            this._soluong = soluong;
         }
     }
 
