@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.dgvdscn = new System.Windows.Forms.DataGridView();
+            this.macn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tencn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtmacn = new System.Windows.Forms.TextBox();
@@ -41,9 +44,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtTim = new System.Windows.Forms.TextBox();
             this.btnTim = new System.Windows.Forms.Button();
-            this.macn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tencn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdscn)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +62,28 @@
             this.dgvdscn.RowHeadersWidth = 51;
             this.dgvdscn.Size = new System.Drawing.Size(500, 361);
             this.dgvdscn.TabIndex = 0;
+            this.dgvdscn.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdscn_CellDoubleClick);
             this.dgvdscn.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdscn_RowEnter);
+            // 
+            // macn
+            // 
+            this.macn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.macn.DataPropertyName = "MaCN";
+            this.macn.HeaderText = "Mã Chuyên Ngành";
+            this.macn.Name = "macn";
+            // 
+            // tencn
+            // 
+            this.tencn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tencn.DataPropertyName = "TenCN";
+            this.tencn.HeaderText = "Tên Chuyên Ngành";
+            this.tencn.Name = "tencn";
+            // 
+            // soluong
+            // 
+            this.soluong.DataPropertyName = "Soluong";
+            this.soluong.HeaderText = "Số Lượng";
+            this.soluong.Name = "soluong";
             // 
             // label1
             // 
@@ -98,7 +119,7 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(146, 199);
+            this.btnXoa.Location = new System.Drawing.Point(146, 96);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(75, 23);
             this.btnXoa.TabIndex = 3;
@@ -108,7 +129,7 @@
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(31, 199);
+            this.btnThem.Location = new System.Drawing.Point(49, 96);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(75, 23);
             this.btnThem.TabIndex = 3;
@@ -118,7 +139,7 @@
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(31, 247);
+            this.btnSua.Location = new System.Drawing.Point(98, 142);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(75, 23);
             this.btnSua.TabIndex = 3;
@@ -133,7 +154,7 @@
             "Mã Chuyên Ngành",
             "Tên Chuyên Ngành",
             ""});
-            this.cbTim.Location = new System.Drawing.Point(130, 88);
+            this.cbTim.Location = new System.Drawing.Point(117, 211);
             this.cbTim.Name = "cbTim";
             this.cbTim.Size = new System.Drawing.Size(121, 21);
             this.cbTim.TabIndex = 4;
@@ -142,7 +163,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(58, 127);
+            this.label4.Location = new System.Drawing.Point(45, 250);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(48, 13);
             this.label4.TabIndex = 5;
@@ -152,7 +173,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(41, 91);
+            this.label5.Location = new System.Drawing.Point(28, 214);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 13);
             this.label5.TabIndex = 5;
@@ -160,41 +181,21 @@
             // 
             // txtTim
             // 
-            this.txtTim.Location = new System.Drawing.Point(130, 124);
+            this.txtTim.Location = new System.Drawing.Point(117, 247);
             this.txtTim.Name = "txtTim";
             this.txtTim.Size = new System.Drawing.Size(100, 20);
             this.txtTim.TabIndex = 6;
             // 
             // btnTim
             // 
-            this.btnTim.Location = new System.Drawing.Point(146, 247);
+            this.btnTim.Location = new System.Drawing.Point(98, 288);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(75, 23);
             this.btnTim.TabIndex = 7;
             this.btnTim.Text = "Tìm";
             this.btnTim.UseVisualStyleBackColor = true;
             // 
-            // macn
-            // 
-            this.macn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.macn.DataPropertyName = "MaCN";
-            this.macn.HeaderText = "Mã Chuyên Ngành";
-            this.macn.Name = "macn";
-            // 
-            // tencn
-            // 
-            this.tencn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tencn.DataPropertyName = "TenCN";
-            this.tencn.HeaderText = "Tên Chuyên Ngành";
-            this.tencn.Name = "tencn";
-            // 
-            // soluong
-            // 
-            this.soluong.DataPropertyName = "Soluong";
-            this.soluong.HeaderText = "Số Lượng";
-            this.soluong.Name = "soluong";
-            // 
-            // ChuyenNganhForm
+            // QuanLiChuyenNganhForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -213,7 +214,7 @@
             this.Controls.Add(this.txtmacn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "ChuyenNganhForm";
+            this.Name = "QuanLiChuyenNganhForm";
             this.Text = "ChuyenNganhForm";
             this.Load += new System.EventHandler(this.ChuyenNganhForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvdscn)).EndInit();

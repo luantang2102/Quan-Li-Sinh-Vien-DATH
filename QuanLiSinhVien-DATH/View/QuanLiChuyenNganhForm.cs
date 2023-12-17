@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLiSinhVien_DATH.View;
 
 namespace QuanLiSinhVien_DATH
 {
@@ -141,6 +142,27 @@ namespace QuanLiSinhVien_DATH
             catch (Exception exc)
             {
                 MessageBox.Show(exc.Message);
+            }
+        }
+
+        private void dgvdscn_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string cn = dgvdscn.CurrentRow.Cells["macn"].Value.ToString();
+            DSSV dstt = new DSSV();
+            foreach (var sv in dssv.DSsinhvien)
+            {
+                if (cn == sv.MaCN)
+                {
+                    dstt.them(sv);
+                }
+            }
+            foreach (var timcn in dscn.DSchuyennganh)
+            {
+                if (timcn.MaCN == cn)
+                {
+                    TTSVForm ttsv = new TTSVForm(dstt, timcn.TenCN, "CN");
+                    ttsv.ShowDialog();
+                }
             }
         }
     }

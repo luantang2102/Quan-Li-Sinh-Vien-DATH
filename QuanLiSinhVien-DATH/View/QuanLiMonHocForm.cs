@@ -11,6 +11,7 @@ using System.Globalization;
 using System.Security.Claims;
 using System.IO;
 using System.Text.Json;
+using QuanLiSinhVien_DATH.View;
 
 namespace QuanLiSinhVien_DATH
 {
@@ -28,23 +29,30 @@ namespace QuanLiSinhVien_DATH
         }
         private void hienthi(DataGridView dgv, List<MonHoc> mh)
         {
+            Tinhsoluong();
             dgv.DataSource = mh.ToList();
         }
-        //private MonHoc timMH(string mamh)
-        //{
-        //    foreach (MonHoc item in dsmh)
-        //    {
-        //        if (item.MaMH == mamh)
-        //            return item;
-        //    }
-        //    return null;
-        //}
-
         private void MonHocForm_Load(object sender, EventArgs e)
         {
             hienthi(dgvMH, dsmh.DSMonHoc);
         }
-
+        private void Tinhsoluong()
+        {
+            foreach (var mh in dsmh.DSMonHoc)
+            {
+                mh.Soluong = 0;
+                foreach (var sv in dssv.DSsinhvien)
+                {
+                    foreach (var mhdk in sv.MonHocDangKy)
+                    {
+                        if (mh.MaMH == mhdk.MaMH)
+                        {
+                            mh.Soluong++;
+                        } 
+                    }
+                }
+            }
+        }
         private void btnThem_Click(object sender, EventArgs e)
         {
             MonHoc mh = new MonHoc();
@@ -116,5 +124,29 @@ namespace QuanLiSinhVien_DATH
             return dsmh;
         }
 
+        private void dgvMH_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string mh = dgvMH.CurrentRow.Cells["mamh"].Value.ToString();
+            DSSV dstt = new DSSV();
+            foreach (var sv in dssv.DSsinhvien)
+            {
+                foreach (var mhdk in sv.MonHocDangKy)
+                {
+                    if (mh == mhdk.MaMH)
+                    {
+                        dstt.them(sv);
+
+                    }
+                }
+            }
+            foreach (var timmh in dsmh.DSMonHoc)
+            {
+                if (timmh.MaMH == mh)
+                {
+                    TTSVForm ttsv = new TTSVForm(dstt, timmh.TenMH, "MH");
+                    ttsv.ShowDialog();
+                }
+            }
+        }
     }
 }
