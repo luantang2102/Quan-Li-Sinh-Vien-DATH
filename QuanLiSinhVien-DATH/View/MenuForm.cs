@@ -59,7 +59,6 @@ namespace QuanLiSinhVien_DATH
         private void đangXuatToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
-
         }
 
         private void chuyenNganhToolStripMenuItem_Click(object sender, EventArgs e)
@@ -78,7 +77,10 @@ namespace QuanLiSinhVien_DATH
         private void MenuForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             ghiFile();
-            Application.Exit();
+            this.Hide();
+            VaiTroForm vaitro = new VaiTroForm();
+            vaitro.ShowDialog();
+            this.Close();
         }
 
         private void quảnLýToolStripMenuItem_DropDownClosed(object sender, EventArgs e)

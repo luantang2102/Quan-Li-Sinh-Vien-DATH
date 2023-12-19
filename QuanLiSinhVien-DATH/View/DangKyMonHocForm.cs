@@ -115,5 +115,13 @@ namespace QuanLiSinhVien_DATH
 
             }
         }
+
+        private void DangKyMonHocForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Hide();
+            VaiTroForm vaitro = new VaiTroForm();
+            vaitro.ShowDialog();
+            this.Close();
+        }
     }
 }
