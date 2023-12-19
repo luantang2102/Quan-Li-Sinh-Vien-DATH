@@ -57,6 +57,9 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -73,19 +76,19 @@
             // 
             // masv
             // 
+            this.masv.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.masv.HeaderText = "Mã Sinh Viên";
             this.masv.MinimumWidth = 6;
             this.masv.Name = "masv";
             this.masv.ReadOnly = true;
-            this.masv.Width = 95;
             // 
             // tensv
             // 
+            this.tensv.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.tensv.HeaderText = "Tên Sinh Viên";
             this.tensv.MinimumWidth = 6;
             this.tensv.Name = "tensv";
             this.tensv.ReadOnly = true;
-            this.tensv.Width = 99;
             // 
             // TTSVForm
             // 
