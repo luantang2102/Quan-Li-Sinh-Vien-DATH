@@ -21,7 +21,7 @@ namespace QuanLiSinhVien_DATH
         {
             try
             {
-                string json = File.ReadAllText("data.json");
+                string json = File.ReadAllText("..//..//data.json");
                 Data data = JsonSerializer.Deserialize<Data>(json);
                 this.dsGV = data.DanhSachGiaoVien; 
                 if(dsGV == null) dsGV = new UserGV();

@@ -130,7 +130,7 @@ namespace QuanLiSinhVien_DATH
         {
             try
             {  
-                string json = File.ReadAllText("data.json");
+                string json = File.ReadAllText("..//..//data.json");
                 Data data = JsonSerializer.Deserialize<Data>(json);
                 this.dssv = data.DanhSachSinhVien;
                 this.dscn = data.DanhSachChuyenNganh;
@@ -176,7 +176,7 @@ namespace QuanLiSinhVien_DATH
                 saveData.DanhSachMonHoc = this.dsmh;
 
                 string jsonString = JsonSerializer.Serialize(saveData);
-                string filePath = "data.json";
+                string filePath = "..//..//data.json";
 
                 if (File.Exists(filePath))
                 {

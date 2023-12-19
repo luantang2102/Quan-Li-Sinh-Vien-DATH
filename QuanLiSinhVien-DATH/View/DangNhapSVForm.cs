@@ -54,7 +54,7 @@ namespace QuanLiSinhVien_DATH
         {
             try
             {
-                string json = File.ReadAllText("data.json");
+                string json = File.ReadAllText("..//..//data.json");
                 Data data = JsonSerializer.Deserialize<Data>(json);
                 this.userSV = data.TKUserSV;
                 this.dssv = data.DanhSachSinhVien;

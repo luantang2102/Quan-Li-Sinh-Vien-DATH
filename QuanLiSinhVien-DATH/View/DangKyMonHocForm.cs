@@ -103,7 +103,7 @@ namespace QuanLiSinhVien_DATH
         {
             try
             {
-                string filePath = "data.json";
+                string filePath = "..//..//data.json";
                 string jsonFromFile = File.Exists(filePath) ? File.ReadAllText(filePath) : "";
                 Data existingData = JsonSerializer.Deserialize<Data>(jsonFromFile) ?? new Data();
                 existingData.DanhSachSinhVien = this.dssv;
