@@ -120,12 +120,14 @@ namespace QuanLiSinhVien_DATH
                     if (radnam.Checked == true)
                     {
                         sv.GioiTinh = "Nam";
+                        sv.GioiTinh = radnam.Text;
                     }
                     else
                     {
                         sv.GioiTinh = "Nữ";
+                        sv.GioiTinh = radnu.Text;
                     }
-                    sv.GioiTinh = radnam.Text;
+                    
                     sv.DiaChi = txtdiachi.Text;
                     sv.SoDT = txtsodt.Text;
                     sv.DanToc = txtdt.Text;
@@ -161,7 +163,7 @@ namespace QuanLiSinhVien_DATH
             txtdt.Text = dgvdmsv.Rows[e.RowIndex].Cells["dantoc"].Value.ToString();
             txtqt.Text = dgvdmsv.Rows[e.RowIndex].Cells["quoctich"].Value.ToString();
             txtsodt.Text = dgvdmsv.Rows[e.RowIndex].Cells["sodt"].Value.ToString();
-        }
+            cbb_macn.Text = dgvdmsv.Rows[e.RowIndex].Cells["macn"].Value.ToString();        }
 
         private void btn_TIm_Click(object sender, EventArgs e)
         {
