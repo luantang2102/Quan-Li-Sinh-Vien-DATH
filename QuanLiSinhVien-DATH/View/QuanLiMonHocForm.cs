@@ -133,7 +133,8 @@ namespace QuanLiSinhVien_DATH
             DSSV dstt = new DSSV();
             foreach (var sv in dssv.DSsinhvien)
             {
-                foreach (var mhdk in sv.MonHocDangKy)
+                if (sv.MonHocDangKy != null)
+                    foreach (var mhdk in sv.MonHocDangKy)
                 {
                     if (mh == mhdk.MaMH)
                     {
