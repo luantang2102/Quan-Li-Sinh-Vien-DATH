@@ -43,12 +43,15 @@ namespace QuanLiSinhVien_DATH
                 mh.Soluong = 0;
                 foreach (var sv in dssv.DSsinhvien)
                 {
-                    foreach (var mhdk in sv.MonHocDangKy)
+                    if (sv.MonHocDangKy != null)
                     {
-                        if (mh.MaMH == mhdk.MaMH)
+                        foreach (var mhdk in sv.MonHocDangKy)
                         {
-                            mh.Soluong++;
-                        } 
+                            if (mh.MaMH == mhdk.MaMH)
+                            {
+                                mh.Soluong++;
+                            }
+                        }
                     }
                 }
             }
@@ -130,12 +133,15 @@ namespace QuanLiSinhVien_DATH
             DSSV dstt = new DSSV();
             foreach (var sv in dssv.DSsinhvien)
             {
-                foreach (var mhdk in sv.MonHocDangKy)
+                if (sv.MonHocDangKy != null)
                 {
-                    if (mh == mhdk.MaMH)
+                    foreach (var mhdk in sv.MonHocDangKy)
                     {
-                        dstt.them(sv);
+                        if (mh == mhdk.MaMH)
+                        {
+                            dstt.them(sv);
 
+                        }
                     }
                 }
             }
