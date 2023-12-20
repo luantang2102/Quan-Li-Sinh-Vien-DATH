@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvdscn = new System.Windows.Forms.DataGridView();
-            this.macn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tencn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtmacn = new System.Windows.Forms.TextBox();
@@ -44,6 +41,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtTim = new System.Windows.Forms.TextBox();
             this.btnTim = new System.Windows.Forms.Button();
+            this.macn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tenchuyennganh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdscn)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +55,7 @@
             this.dgvdscn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvdscn.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.macn,
-            this.tencn,
+            this.tenchuyennganh,
             this.soluong});
             this.dgvdscn.Location = new System.Drawing.Point(300, 0);
             this.dgvdscn.Name = "dgvdscn";
@@ -64,26 +64,6 @@
             this.dgvdscn.TabIndex = 0;
             this.dgvdscn.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdscn_CellDoubleClick);
             this.dgvdscn.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdscn_RowEnter);
-            // 
-            // macn
-            // 
-            this.macn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.macn.DataPropertyName = "MaCN";
-            this.macn.HeaderText = "Mã Chuyên Ngành";
-            this.macn.Name = "macn";
-            // 
-            // tencn
-            // 
-            this.tencn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tencn.DataPropertyName = "TenCN";
-            this.tencn.HeaderText = "Tên Chuyên Ngành";
-            this.tencn.Name = "tencn";
-            // 
-            // soluong
-            // 
-            this.soluong.DataPropertyName = "Soluong";
-            this.soluong.HeaderText = "Số Lượng";
-            this.soluong.Name = "soluong";
             // 
             // label1
             // 
@@ -196,6 +176,26 @@
             this.btnTim.UseVisualStyleBackColor = true;
             this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
+            // macn
+            // 
+            this.macn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.macn.DataPropertyName = "MaCN";
+            this.macn.HeaderText = "Mã Chuyên Ngành";
+            this.macn.Name = "macn";
+            // 
+            // tenchuyennganh
+            // 
+            this.tenchuyennganh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tenchuyennganh.DataPropertyName = "TenCN";
+            this.tenchuyennganh.HeaderText = "Tên Chuyên Ngành";
+            this.tenchuyennganh.Name = "tenchuyennganh";
+            // 
+            // soluong
+            // 
+            this.soluong.DataPropertyName = "Soluong";
+            this.soluong.HeaderText = "Số Lượng";
+            this.soluong.Name = "soluong";
+            // 
             // QuanLiChuyenNganhForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -240,7 +240,7 @@
         private System.Windows.Forms.TextBox txtTim;
         private System.Windows.Forms.Button btnTim;
         private System.Windows.Forms.DataGridViewTextBoxColumn macn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tencn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tenchuyennganh;
         private System.Windows.Forms.DataGridViewTextBoxColumn soluong;
     }
 }

@@ -44,10 +44,10 @@ namespace QuanLiSinhVien_DATH
 
         private void dgvdscn_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            //VT = e.RowIndex;
-            //DataGridViewRow row = dgvdscn.Rows[VT];
-            //txtmacn.Text = dgvdscn.Rows[e.RowIndex].Cells["macn"].Value.ToString();
-            //txttenchuyennganh.Text = dgvdscn.Rows[e.RowIndex].Cells["tenchuyennganh"].Value.ToString();
+            VT = e.RowIndex;
+            DataGridViewRow row = dgvdscn.Rows[VT];
+            txtmacn.Text = dgvdscn.Rows[e.RowIndex].Cells["macn"].Value.ToString();
+            txttenchuyennganh.Text = dgvdscn.Rows[e.RowIndex].Cells["tenchuyennganh"].Value.ToString();
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
@@ -71,7 +71,7 @@ namespace QuanLiSinhVien_DATH
         {
             try
             {
-                DialogResult kQ = MessageBox.Show("Ban thuc su muon xoa?,", "Thong bao", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult kQ = MessageBox.Show("Ban thuc su muon xoa?", "Thong bao", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if(kQ==DialogResult.Yes)
                 {
                     this.dscn.xoaViTri(VT);
